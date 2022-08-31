@@ -33,6 +33,8 @@ class GuestController extends Controller
             'post'     => $post,
             'posts'    => $posts,
             'albums'   => $albums,
+            'tendik'   => User::where('role','K')->count(),
+            'pendidik' => User::where('role','G')->count(),
         ]);
     }
 

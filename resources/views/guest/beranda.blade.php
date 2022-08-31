@@ -110,12 +110,12 @@
                     <p class="font-size-15 m-0 pe-20">Menuntut ilmu, para generasi penerus bangsa.</p>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-3" data-show="startbox" data-show-delay="100">
-                    <div class="h1 m-0 text-accent-1">34</div>
+                    <div class="h1 m-0 text-accent-1">{{ $pendidik }}</div>
                     <div class="h6 mb-15">Pendidik</div>
                     <p class="font-size-15 m-0 pe-20">Mendidik peserta didik, pahlawan tanpa tanda jasa.</p>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-3" data-show="startbox" data-show-delay="200">
-                    <div class="h1 m-0 text-accent-1">10</div>
+                    <div class="h1 m-0 text-accent-1">{{ $tendik }}</div>
                     <div class="h6 mb-15">Karyawan</div>
                     <p class="font-size-15 m-0 pe-20">Pelaksana teknis penyelenggaraan administrasi dan informasi.</p>
                 </div>
@@ -269,9 +269,9 @@
                                 <div class="feedback-header d-flex align-items-center mb-35">
                                     <div class="flex-shrink-0"><img class="rounded-circle" loading="lazy" src="assets/img/root/testimoni-1-g.png" alt="" height="64" width="64"></div>
                                     <div class="flex-grow-1 ms-20">
-                                        <h6 class="feedback-author mb-5">Aulia Khairunnisa Isman</h6>
-                                        <p class="feedback-position text-gray-dark font-size-14 m-0">2022 &ndash; Univ. Hasanuddin</p>
-                                        <p class="feedback-position text-gray-dark font-size-14 m-0">Teknik Informatika</p>
+                                        <h6 class="feedback-author mb-5 text-truncate">Aulia Khairunnisa Isman</h6>
+                                        <p class="feedback-position text-gray-dark font-size-14 m-0 text-truncate">2022 &ndash; Univ. Hasanuddin</p>
+                                        <p class="feedback-position text-gray-dark font-size-14 m-0 text-truncate">Teknik Informatika</p>
                                     </div>
                                 </div>
                                 <p class="feedback-text fw-medium text-dark m-0">“ SMAN 24 Jakarta memberikan pengalaman yang menarik dan seru untuk saya. Guru dan karyawan yang selalu memberikan motivasi, teman teman yang saling mendukung mampu membuat saya meraih PTN dengan jurusan yang saya mau!! ”</p>
@@ -286,9 +286,9 @@
                                 <div class="feedback-header d-flex align-items-center mb-35">
                                     <div class="flex-shrink-0"><img class="rounded-circle" loading="lazy" src="assets/img/root/testimoni-3-g.png" alt="" height="64" width="64"></div>
                                     <div class="flex-grow-1 ms-20">
-                                        <h6 class="feedback-author mb-5">Moja Rasya Alifia</h6>
-                                        <p class="feedback-position text-gray-dark font-size-14 m-0">2019 &ndash; Univ. Indonesia</p>
-                                        <p class="feedback-position text-gray-dark font-size-14 m-0">Ilmu Komunikasi</p>
+                                        <h6 class="feedback-author mb-5 text-truncate">Moja Rasya Alifia</h6>
+                                        <p class="feedback-position text-gray-dark font-size-14 m-0 text-truncate">2019 &ndash; Univ. Indonesia</p>
+                                        <p class="feedback-position text-gray-dark font-size-14 m-0 text-truncate">Ilmu Komunikasi</p>
                                     </div>
                                 </div>
                                 <p class="feedback-text fw-medium text-dark m-0">“ Dengan mengemban pendidikan di SMA 24 selama 3 tahun, saya merasa banyak hal & pembelajaran baik dalam bidang akademik ataupun diluar itu. Di sekolah ini saya dapat berkembang & menyadarkan saya untuk optimis dalam impian dan cita - cita saya dalam segala hal. ”</p>
@@ -303,9 +303,9 @@
                                 <div class="feedback-header d-flex align-items-center mb-35">
                                     <div class="flex-shrink-0"><img class="rounded-circle" loading="lazy" src="assets/img/root/testimoni-2-g.png" alt="" height="64" width="64"></div>
                                     <div class="flex-grow-1 ms-20">
-                                        <h6 class="feedback-author mb-5">Salsabila Firdausia</h6>
-                                        <p class="feedback-position text-gray-dark font-size-14 m-0">2017 &ndash; UPN Veteran Jakarta</p>
-                                        <p class="feedback-position text-gray-dark font-size-14 m-0">Sarjana Kedokteran</p>
+                                        <h6 class="feedback-author mb-5 text-truncate">Salsabila Firdausia</h6>
+                                        <p class="feedback-position text-gray-dark font-size-14 m-0 text-truncate">2017 &ndash; UPN Veteran Jakarta</p>
+                                        <p class="feedback-position text-gray-dark font-size-14 m-0 text-truncate">Sarjana Kedokteran</p>
                                     </div>
                                 </div>
                                 <p class="feedback-text fw-medium text-dark m-0">“ Saya menikmati pembelajaran selama di SMA 24 Jakarta. Guru-guru nya asik dan baik banget. Lingkungan sekolah pun sangat mendukung saya untuk menuntut ilmu. Berkat dukungan sekolah, saya bisa diterima di PTN dengan jurusan yang saya mau yaitu fakultas kedokteran. Semangat untuk adik-adik, maju terus SMAN 24 Jakarta! ”</p>
@@ -320,9 +320,9 @@
                                 <div class="feedback-header d-flex align-items-center mb-35">
                                     <div class="flex-shrink-0"><img class="rounded-circle" loading="lazy" src="assets/img/root/testimoni-4-g.png" alt="" height="64" width="64"></div>
                                     <div class="flex-grow-1 ms-20">
-                                        <h6 class="feedback-author mb-5">Bayu Febri Qisthi</h6>
-                                        <p class="feedback-position text-gray-dark font-size-14 m-0">2012 &ndash; Wings Flying School</p>
-                                        <p class="feedback-position text-gray-dark font-size-14 m-0">Beasiswa Lion Air</p>
+                                        <h6 class="feedback-author mb-5 text-truncate">Bayu Febri Qisthi</h6>
+                                        <p class="feedback-position text-gray-dark font-size-14 m-0 text-truncate">2012 &ndash; Wings Flying School</p>
+                                        <p class="feedback-position text-gray-dark font-size-14 m-0 text-truncate">Beasiswa Lion Air</p>
                                     </div>
                                 </div>
                                 <p class="feedback-text fw-medium text-dark m-0">“ Berlatar belakang sebagai murid dengan kemampuan seadanya, dan bukan juara kelas, membuat saya merasa harus mengembangkan kemampuan saya untuk dapat membentuk masa depan yang lebih baik. Dan SMAN 24 Jakarta lah yang membantu saya mencapai segalanya, membimbing dengan tepat, membantu memahami cara belajar yang benar dan membentuk menjadi pribadi yang lebih baik. Tidak ada manusia yang hebat, yang ada manusia yg yang mau terus berlatih dan gigih. ”</p>
