@@ -17,7 +17,7 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        $users = User::where('role', 'G')->orderBy('name')->get();
+        $users = User::where('role', 'G')->orWhere('role', 'H')->orderBy('name')->get();
         return view('auth.pendidik', [
             'users' => $users->load(['position']),
         ]);
