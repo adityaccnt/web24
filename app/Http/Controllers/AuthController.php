@@ -120,18 +120,20 @@ class AuthController extends Controller
 
     public function authenticate(Request $request)
     {
+        $request->merge([
+            'email' => $request->email . '@sman24jakarta.sch.id',
+        ]);
+
         $credentials = $request->validate([
-            'email' => 'required|email:dns',
+            'email' => 'required',
             'password' => 'required'
         ]);
 
         $user = User::where('email', $request->email)->first();
-        if (!$user)
-            return redirect('/masuk')->withErrors(['Email tidak terdaftar']);
+        if (!$user) return redirect('/masuk')->withErrors(['Pengguna tidak ditemukan']);
 
         $organizations = OrganizationMember::where('member_id', $user->id)->where('role', 'k')->first();
-        if (!$organizations)
-            return redirect('/masuk')->withErrors(['Anda bukan pengelola']);
+        if (!$organizations) return redirect('/masuk')->withErrors(['Anda bukan pengelola']);
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
@@ -141,7 +143,7 @@ class AuthController extends Controller
             return redirect()->intended('/dasbor');
         }
 
-        return redirect('/masuk')->withErrors(['Isian email / kata sandi salah']);
+        return redirect('/masuk')->withErrors(['Pengguna / kata sandi tidak cocok']);
     }
 
     public function keluar()

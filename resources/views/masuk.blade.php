@@ -7,7 +7,7 @@
         <meta name="author" content="Aditya Dwi Rahmadi" />
         <title>Masuk</title>
         <!-- Load Favicon-->
-        <link href="{{ url('assets/img/favicon.ico') }}" rel="shortcut icon" type="image/x-icon" />
+        <link rel="icon" type="image/png" href="{{ url('public/files/64.png') }}"><!-- Fonts-->
         <!-- Load Material Icons from Google Fonts-->
         <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet" />
         <!-- Roboto and Roboto Mono fonts from Google Fonts-->
@@ -44,7 +44,7 @@
                                                 @endif
                                                 <form class="mb-5" action="masuk" method="POST">
                                                     @csrf
-                                                    <div class="mb-4"><mwc-textfield class="w-100" label="Email" name="email" outlined required></mwc-textfield></div>
+                                                    <div class="mb-4"><mwc-textfield class="w-100" label="Pengguna" name="email" outlined required></mwc-textfield></div>
                                                     <div class="mb-4"><mwc-textfield class="w-100" label="Kata Sandi" name="password" outlined required type="password"></mwc-textfield></div>
                                                     <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
                                                         <button type="submit" class="btn btn-primary">Masuk</a>
