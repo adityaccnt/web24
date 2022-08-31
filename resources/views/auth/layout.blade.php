@@ -7,27 +7,31 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="author" content="Aditya Dwi Rahmadi" />
         <title>@yield('title')</title>
-        <!-- Load Favicon-->
-        <link href="{{ url('public/files/64.png') }}" rel="shortcut icon" type="image/x-icon" />
-        <!-- Load Material Icons from Google Fonts-->
+        {{-- Favicon --}}
+        <link rel="icon" type="image/png" href="{{ url('public/files/64.png') }}"><!-- Fonts-->
+        {{-- Icons --}}
         <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet" />
-        <!-- Load Simple DataTables Stylesheet-->
+        {{-- DataTables --}}
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
-        <!-- Roboto and Roboto Mono fonts from Google Fonts-->
+        {{-- Fonts--> --}}
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500" rel="stylesheet" />
-        <!-- Load main stylesheet-->
+        {{-- Load main stylesheet --}}
         <link href="{{ url('css/styles.css') }}" rel="stylesheet" />
         <link rel="stylesheet" type="text/css" href="{{ url('css/trix.css') }}">
-        <script type="text/javascript" src="{{ url('js/trix.js') }}"></script>
+        {{-- Script --}}
+        <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
-        <style>
-            trix-toolbar [data-trix-button-group="file-tools"]{ display: none;}
-        </style>
-        <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+        @if (Request::is('kelola-berita*'))
+        {{-- summernote --}}
+        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+        {{-- Trix --}}
+        <script type="text/javascript" src="{{ url('js/trix.js') }}"></script>
+        <style>trix-toolbar [data-trix-button-group="file-tools"]{ display: none;}</style>
+        @endif
     </head>
     <body class="nav-fixed bg-light">
-        
         <nav class="top-app-bar navbar navbar-expand navbar-dark bg-dark">
             <div class="container-fluid px-4">
                 <button class="btn btn-lg btn-icon order-1 order-lg-0" id="drawerToggle" href="javascript:void(0);"><i class="material-icons">menu</i></button>

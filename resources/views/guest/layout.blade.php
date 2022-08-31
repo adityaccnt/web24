@@ -5,21 +5,18 @@
     <meta charset="utf-8">
     <title>@yield('title')</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Situs web resmi SMAN 24 Jakarta">
+    <meta name="description" content="Situs web resmi Sekolah Menengah Atas Negeri (SMAN) 24 Jakarta. Salah satu sekolah berstatus negeri di kawasan Gelora, Jakarta Pusat.">
     <meta name="author" content="Aditya Dwi Rahmadi">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     {{-- Favicon --}}
     <link rel="icon" type="image/png" href="{{ url('public/files/64.png') }}"><!-- Fonts-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap">
     {{-- Open Graph data --}}
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ url()->current() }}" />
     <meta property="og:title" content="@yield('title')" />
     <meta property="og:image" content="{{ url('public/files/64.png') }}" />
-    <meta property="og:image:type" content="image/jpg">
-    <meta property="og:description" content="Situs web resmi SMAN 24 Jakarta" />
-    <meta property="og:site_name" content="SMAN 24 Jakarta" />
-    <meta property="og:image:width" content="64" />
-    <meta property="og:image:height" content="64" />
-    <meta property="og:image:alt" content="SMAN 24 Jakarta" />
+    <meta property="og:description" content="Situs web resmi Sekolah Menengah Atas Negeri (SMAN) 24 Jakarta. Salah satu sekolah berstatus negeri di kawasan Gelora, Jakarta Pusat." />
     {{-- Style --}}
     <link rel="stylesheet" href="{{ url('assets/vendors/css/magnific-popup.css') }}">
     <link rel="stylesheet" href="{{ url('assets/vendors/css/swiper-bundle.css') }}">
@@ -83,7 +80,7 @@
         <nav class="navbar navbar-expand-lg navbar-top bg-white navbar-border-bottom navbar-opaque">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ url('public/files/logo.png') }}" height="50" alt="Logo SMAN 24 Jakarta">
+                    <img src="{{ url('public/files/logo.png') }}" height="50" alt="SMAN 24 Jakarta">
                 </a>
                 <a class="navbar-toggle order-4 popup-inline" href="#navbar-mobile-style-1"><span>
                     </span>
@@ -120,7 +117,7 @@
                     <a class="navbar-toggle popup-modal-dismiss" href="#"><span></span><span></span><span></span></a></div>
                 <div class="navbar-body">
                     <ul class="nav navbar-nav navbar-nav-collapse">
-                        <li class="nav-item navbar-collapse"><a class="nav-link" href="#navbarCollapseHome" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbarCollapseHome"><span>Beranda</span></a></li>
+                        <li class="nav-item navbar-collapse"><a class="nav-link" href="{{ url('/') }}"><span>Beranda</span></a></li>
                         <li class="nav-item navbar-collapse"><a class="nav-link" href="#navbarCollapseServices" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbarCollapseServices"><span>Profil</span></a>
                             <div class="navbar-collapse-menu collapse" id="navbarCollapseServices">
                                 <ul class="nav navbar-nav">
@@ -176,11 +173,11 @@
                     </div>
                     <div class="col-12 col-lg-6">
                         <ul class="nav text-white nav-opacity nav-gap-lg justify-content-center">
-                            <li class="nav-item"><a class="nav-link" href="#">Dinas Pendidikan</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">PPDB</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Periksa NISN</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Dapodikmen</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">KJP</a></li>
+                            <li class="nav-item"><a class="nav-link" href="https://disdik.jakarta.go.id/">Dinas Pendidikan</a></li>
+                            <li class="nav-item"><a class="nav-link" href="https://ppdb.jakarta.go.id/">PPDB</a></li>
+                            <li class="nav-item"><a class="nav-link" href="https://nisn.data.kemdikbud.go.id/">Periksa NISN</a></li>
+                            <li class="nav-item"><a class="nav-link" href="https://dapo.kemdikbud.go.id/sekolah/27675379112612725F43">Dapodikmen</a></li>
+                            <li class="nav-item"><a class="nav-link" href="https://kjp.jakarta.go.id/">KJP</a></li>
                         </ul>
                     </div>
                     <div class="col-12 col-lg-3 text-lg-end text-center">

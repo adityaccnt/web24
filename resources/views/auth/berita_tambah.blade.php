@@ -30,8 +30,9 @@
                 </div>
                 <div class="mb-4">
                     <label class="form-label mb-2 text-muted">Konten</label>
-                    <input class="mb-4" id="content" type="hidden" name="content">
-                    <trix-editor class="form-control" spellcheck="false" input="content">{{ old('content') }}</trix-editor>
+                    <textarea id="summernote" name="content">{{ old('content') }}</textarea>
+                    {{-- <input class="mb-4" id="content" type="hidden" name="content">
+                    <trix-editor class="form-control" spellcheck="false" input="content">{{ old('content') }}</trix-editor> --}}
                     @error('content')
                     <div class="small text-danger">{{ $message }}</div>
                     @enderror
@@ -64,6 +65,16 @@
 </div>
 
 <script>
+    $(document).ready(function() {
+        $('#summernote').summernote();
+        
+    });
+    
+    $("#summernote").on("summernote.enter", function(we, e) {
+        $(this).summernote("pasteHTML", "<br><br>");
+        e.preventDefault();
+    });
+
     let title   = document.getElementById('title');
     let slug    = document.getElementById('slug');
 
