@@ -150,8 +150,22 @@
 
     <div class="py-120 bg-gray-light">
         <div class="container">
-            <h2 class="m-0 text-center mb-70" data-show="startbox"><span class="highlight">Lirik Mars Sekolah</span></h2>
+            <h2 class="m-0 text-center mb-50" data-show="startbox"><span class="highlight">Lirik Mars Sekolah</span></h2>
             <div class="row justify-content-center gy-40 fw-medium h4 lh-lg">
+                <div class="col-12 col-lg-7">
+                    <div class="row text-gray fw-light" style="font-size: 0.8em">
+                        <div class="col">
+                            DO = E
+                        </div>
+                        <div class="col text-end">
+                            Juventius Paulus Sudarno (1968)
+                        </div>
+                    </div>
+                </div>
+                <audio controls class="col-12 col-lg-7">
+                    <source src="{{ url('public/files/mars.mp3') }}" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                </audio>
                 <!-- Item-->
                 <div class="col-12 col-lg-7" data-show="startbox" data-show-delay="100">
                     Kami pelajar SMA dua puluh empat Jakarta<br/>
