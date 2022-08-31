@@ -23,26 +23,27 @@ use App\Http\Controllers\AchievementController;
 |
 */
 
-// Route::middleware('guest')->group(function () {
-    Route::get('/', [GuestController::class, 'beranda']);
-    Route::get('/profil', [GuestController::class, 'profil']);
-    Route::get('/manajemen', [GuestController::class, 'manajemen']);
-    Route::get('/pendidik', [GuestController::class, 'pendidik']);
-    Route::get('/tenaga-kependidikan', [GuestController::class, 'tenaga_kependidikan']);
-    Route::get('/osis', [GuestController::class, 'osis']);
-    Route::get('/osis/{organization:slug}', [GuestController::class, 'ekskul']);
-    Route::get('/fasilitas', [GuestController::class, 'fasilitas']);
-    Route::get('/prestasi', [GuestController::class, 'prestasi']);
-    Route::get('/berita', [GuestController::class, 'berita']);
-    Route::get('/berita/{post:slug}', [GuestController::class, 'berita_show']);
-    Route::get('/berita/kategori/{organization:slug}', [GuestController::class, 'berita_category']);
-    Route::get('/galeri', [GuestController::class, 'galeri']);
-    Route::get('/galeri/{album:slug}', [GuestController::class, 'galeri_show']);
-    Route::get('/galeri/kategori/{organization:slug}', [GuestController::class, 'galeri_category']);
-    Route::get('/kontak', [GuestController::class, 'kontak']);
+Route::get('/', [GuestController::class, 'beranda']);
+Route::get('/profil', [GuestController::class, 'profil']);
+Route::get('/manajemen', [GuestController::class, 'manajemen']);
+Route::get('/pendidik', [GuestController::class, 'pendidik']);
+Route::get('/tenaga-kependidikan', [GuestController::class, 'tenaga_kependidikan']);
+Route::get('/osis', [GuestController::class, 'osis']);
+Route::get('/osis/{organization:slug}', [GuestController::class, 'ekskul']);
+Route::get('/fasilitas', [GuestController::class, 'fasilitas']);
+Route::get('/prestasi', [GuestController::class, 'prestasi']);
+Route::get('/berita', [GuestController::class, 'berita']);
+Route::get('/berita/{post:slug}', [GuestController::class, 'berita_show']);
+Route::get('/berita/kategori/{organization:slug}', [GuestController::class, 'berita_category']);
+Route::get('/galeri', [GuestController::class, 'galeri']);
+Route::get('/galeri/{album:slug}', [GuestController::class, 'galeri_show']);
+Route::get('/galeri/kategori/{organization:slug}', [GuestController::class, 'galeri_category']);
+Route::get('/kontak', [GuestController::class, 'kontak']);
+
+Route::middleware('guest')->group(function () {
     Route::get('/masuk', [AuthController::class, 'masuk'])->name('login');
     Route::post('/masuk', [AuthController::class, 'authenticate']);
-// });
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/pratinjau-berita/{post:slug}', [GuestController::class, 'berita_preview']);
