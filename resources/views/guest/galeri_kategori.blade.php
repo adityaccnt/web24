@@ -6,7 +6,8 @@
         <!-- Page title-->
         <div class="position-relative py-210">
             <div class="background">
-                <div class="background-image jarallax" data-jarallax data-speed="0.8"><img class="jarallax-img" loading="lazy" src="{{ url('assets/img/portfolio/projects-hero-1920x1080.jpg') }}" alt=""></div>
+                <div class="background-image jarallax" data-jarallax data-speed="0.8">
+                    <img class="jarallax-img" loading="lazy" src="{{ url('public/files/berita.jpg') }}" alt="Galeri"></div>
                 <div class="background-color" style="--background-color: #000; opacity: .25;"></div>
             </div>
             <div class="container">
