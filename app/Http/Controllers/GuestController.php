@@ -33,17 +33,17 @@ class GuestController extends Controller
             'post'     => $post,
             'posts'    => $posts,
             'albums'   => $albums,
-            'tendik'   => User::where('role','K')->count(),
-            'pendidik' => User::where('role','G')->count(),
+            'tendik'   => User::where('role', 'K')->count(),
+            'pendidik' => User::where('role', 'G')->count(),
         ]);
     }
 
     public function profil()
     {
-        return view('guest.profil',[
-            'ekskul'        => Organization::where('status','ekskul')->count(),
-            'pendidik'      => User::where('role','G')->count(),
-            'managements'   => OrganizationMember::where('position_id', '<', 5)->orderBy('position_id')->get(),
+        return view('guest.profil', [
+            'ekskul'        => Organization::where('status', 'ekskul')->count(),
+            'pendidik'      => User::where('role', 'G')->count(),
+            'managements'   => OrganizationMember::where('position_id', '<', 11)->orderBy('position_id')->get(),
         ]);
     }
 
@@ -59,7 +59,7 @@ class GuestController extends Controller
             'teachers' => $teachers,
         ]);
     }
-    
+
     public function tenaga_kependidikan()
     {
         $teachers = User::where('role', 'K')->orderBy('name')->get();
@@ -116,7 +116,7 @@ class GuestController extends Controller
     public function fasilitas()
     {
         $facilities = Facility::orderBy('name')->get();
-        return view('guest.fasilitas',[
+        return view('guest.fasilitas', [
             'facilities'    => $facilities,
         ]);
     }
