@@ -25,7 +25,7 @@ class AuthController extends Controller
     public function dasbor()
     {
         $org_id         = session('run_as');
-        $organizations  = OrganizationMember::where('member_id', auth()->user()->id)->get();
+        $organizations  = OrganizationMember::select('organization_id','member_id')->where('member_id', auth()->user()->id)->get();
         $berita         = Post::where('organization_id', $org_id);
         $berita_thismth = Post::where('organization_id', $org_id)->whereMonth('created_at', date('m'))->get();
         $berita_lastmth = Post::where('organization_id', $org_id)->whereMonth('created_at', date('m', strtotime("-1 month")))->get();
