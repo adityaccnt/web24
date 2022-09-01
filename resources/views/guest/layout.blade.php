@@ -23,6 +23,14 @@
     <link rel="stylesheet" href="{{ url('assets/css/main.css') }}">
     {{-- jQuery --}}
     <script src="{{ url('assets/vendors/js/jquery.min.js') }}"></script>
+    {{-- Google tag (gtag.js) --}}
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YJQHTC68B1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-YJQHTC68B1');
+    </script>
 </head>
 
 <body class=" has-topbar">
