@@ -16,8 +16,8 @@
                         @enderror
                     </div>
                     <div class="mb-4 col-12 col-sm-5">
-                        <label class="form-label mb-2 text-muted" for="thumbnail">Gambar <span class="text-danger">*</span></label>
-                        <input class="form-control" id="thumbnail" name="thumbnail" accept="image/*" type="file" required>
+                        <label class="form-label mb-2 text-muted" for="thumbnail">Gambar</label>
+                        <input class="form-control" id="thumbnail" name="thumbnail" accept="image/*" type="file">
                     </div>
                 </div>
                 <div class="mb-4">
@@ -38,14 +38,6 @@
                     @enderror
                 </div>
                 <div class="row">
-                    {{-- <div class="col-sm-4 mb-4">
-                        <label class="form-label text-muted">Sebagai <span class="text-danger">*</span></label>
-                        <select class="form-select" name="organization">
-                            @foreach ($orgMembers as $orgMember)                        
-                            <option value="{{ $orgMember->organization_id }}">{{ $orgMember->organization->name }}</option>
-                            @endforeach
-                        </select>
-                    </div> --}}
                     <div class="mb-4" style="width: 140px">
                         <label class="form-label text-muted" for="litepicker">Terbit <span class="text-danger">*</span></label>
                         <input name="published_at" class="form-control" id="litepicker" value="{{ old('published_at', date('Y-m-d')) }}" placeholder="Pilih tanggal" readonly>
@@ -66,8 +58,7 @@
 
 <script>
     $(document).ready(function() {
-        $('#summernote').summernote();
-        
+        $('#summernote').summernote(); 
     });
     
     $("#summernote").on("summernote.enter", function(we, e) {

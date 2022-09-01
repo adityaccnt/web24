@@ -209,7 +209,15 @@
                     <div data-filters="company">
                         @if ($post)                            
                         <!-- Blog-->
-                        <div class="card card-blog  card-vertical card-hover-zoom"><a class="card-img rounded-4" href="{{ url('berita/' . $post->slug) }}" data-img-height style="--img-height: 70%;"><span class="badge bg-dark text-white position-absolute top-0 start-0 z-index-1 mt-20 ms-20">{{ $post->organization->name }}</span><img loading="lazy" src="{{ url($post->thumbnail->asset_url) }}" alt="{{ $post->title }}"></a>
+                        <div class="card card-blog  card-vertical card-hover-zoom">
+                            <a class="card-img rounded-4" href="{{ url('berita/' . $post->slug) }}" data-img-height style="--img-height: 70%;">
+                                <span class="badge bg-dark text-white position-absolute top-0 start-0 z-index-1 mt-20 ms-20">{{ $post->organization->name }}</span>
+                                @if ($post->thumbnail_id)
+                                <img loading="lazy" src="{{ url($post->thumbnail->asset_url) }}" alt="{{ $post->title }}">
+                                @else
+                                <img loading="lazy" src="{{ url('public/files/thumbnail_default.jpg') }}" alt="{{ $post->title }}">                                    
+                                @endif
+                            </a>
                             <div class="card-body pt-30">
                                 <div class="card-date text-gray-dark">{{ $post->published_at->format('d/m/Y') }}</div><a class="card-title h4" href="{{ url('berita/' . $post->slug) }}">{{ $post->title }}</a>
                             </div>
@@ -225,8 +233,12 @@
                             <!-- Blog-->
                             <a class="card card-blog card-sm card-horizontal card-hover-zoom" href="{{ url('berita/' . $post->slug) }}">
                                 <span class="card-img rounded-2" data-img-height style="--img-height: 88%;">
-                                    <img loading="lazy" src="{{ $post->thumbnail->asset_url }}" alt="{{ $post->title }}">
-                                </span>
+                                    @if ($post->thumbnail_id)
+                                    <img loading="lazy" src="{{ url($post->thumbnail->asset_url) }}" alt="{{ $post->title }}">
+                                    @else
+                                    <img loading="lazy" src="{{ url('public/files/thumbnail_default.jpg') }}" alt="{{ $post->title }}">                                    
+                                    @endif
+                                    </span>
                                 <span class="card-body">
                                     <span class="card-date text-gray-dark">{{ $post->published_at->format('d/m/Y') }}</span>
                                     <span class="card-title h4">{{ $post->title }}</span>

@@ -3,6 +3,7 @@
 @section('main')
 <!-- Main-->
     <div class="content-wrap ">
+        @if ($posts->thumbnail_id)
         <a href="{{ url($posts->thumbnail->asset_url) }}" class="image-link">
             <div class="py-240 position-relative">
                 <div class="background">
@@ -13,6 +14,18 @@
                 <div class="background-color" style="--background-color: #000; opacity: .5;"></div>
             </div>
         </a>
+        @else
+        <a href="{{ url('public/files/thumbnail_default.jpg') }}" class="image-link">
+            <div class="py-240 position-relative">
+                <div class="background">
+                    <div class="background-image jarallax" data-jarallax data-speed="0.8">
+                        <img class="jarallax-img" loading="lazy" src="{{ url('public/files/thumbnail_default.jpg') }}" alt="{{ $posts->title }}">
+                    </div>
+                </div>
+                <div class="background-color" style="--background-color: #000; opacity: .5;"></div>
+            </div>
+        </a>
+        @endif
         <div class="container">
             <div class="row pt-120 pb-60">
                 <div class="col-12 col-lg-8 offset-lg-2">
