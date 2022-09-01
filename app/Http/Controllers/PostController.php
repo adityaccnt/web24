@@ -14,10 +14,9 @@ class PostController extends Controller
     public function index()
     {
         $run_as = session('run_as');
-        if ($run_as == 1)
-            $posts = Post::orderBy('status_id', 'asc')->orderBy('published_at', 'desc')->get();
-        else
-            $posts = Post::where('organization_id', $run_as)->orderBy('status_id', 'asc')->orderBy('published_at', 'desc')->get();
+        $post   = Post::select('slug', 'published_at', 'status_id', 'organization_id', 'author_id', 'title');
+        if ($run_as == 1) $posts = $post->orderBy('status_id', 'asc')->orderBy('published_at', 'desc')->get();
+        else $posts = $post->where('organization_id', $run_as)->orderBy('status_id', 'asc')->orderBy('published_at', 'desc')->get();
 
         return view('auth.berita', [
             'posts' => $posts->load(['organization', 'author', 'status']),
@@ -115,7 +114,7 @@ class PostController extends Controller
     public function update(Request $request, $post)
     {
         $post = Post::where('slug', $post)->firstOrFail();
-        
+
         Post::where('id', $post->id)->update([
             'title'             => $request->title,
             'content'           => $request->content,
