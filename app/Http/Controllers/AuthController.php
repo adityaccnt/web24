@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use App\Models\PostAttachment;
 use App\Models\OrganizationMember;
 use App\Models\OrganizationGallery;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -25,7 +26,7 @@ class AuthController extends Controller
     public function dasbor()
     {
         $org_id         = session('run_as');
-        $organizations  = OrganizationMember::select('organization_id','member_id')->where('member_id', auth()->user()->id)->get();
+        $organizations  = OrganizationMember::select('organization_id', 'member_id')->where('member_id', auth()->user()->id)->get();
         $berita         = Post::where('organization_id', $org_id);
         $berita_thismth = Post::where('organization_id', $org_id)->whereMonth('created_at', date('m'))->get();
         $berita_lastmth = Post::where('organization_id', $org_id)->whereMonth('created_at', date('m', strtotime("-1 month")))->get();
@@ -139,7 +140,10 @@ class AuthController extends Controller
             $request->session()->regenerate();
             $organization = Organization::find($organizations->organization_id);
             session(['run_as' => $organization->id, 'as_org' => $organization->name]);
-
+            Log::build([
+                'driver' => 'single',
+                'path' => storage_path('logs/users.log'),
+            ])->info("[LOGIN] [1] [$user->id]");
             return redirect()->intended('/dasbor');
         }
 
@@ -165,6 +169,10 @@ class AuthController extends Controller
             $user       = auth()->user()->id;
             $password   = $request->password;
             User::where('id', $user)->update(['password' => Hash::make($password)]);
+            Log::build([
+                'driver' => 'single',
+                'path' => storage_path('logs/users.log'),
+            ])->info("[CHANGE_PASSWORD] [1] [$user]");
             return redirect('kata-sandi')->with('success', 'Sandi berhasil diperbarui');
         } catch (\Exception $e) {
             return redirect('kata-sandi')->with('failed', $e->getMessage());
