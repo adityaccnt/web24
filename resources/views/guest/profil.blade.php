@@ -150,15 +150,17 @@
 
     <div class="py-120 bg-gray-light">
         <div class="container">
-            <h2 class="m-0 text-center mb-50" data-show="startbox"><span class="highlight">Lirik Mars Sekolah</span></h2>
+            <h2 class="m-0 text-center mb-50" data-show="startbox"><span class="highlight">Mars SMA Negeri 24</span></h2>
             <div class="row justify-content-center gy-40 fw-medium h4 lh-lg">
                 <div class="col-12 col-lg-7">
                     <div class="row text-gray fw-light" style="font-size: 0.8em">
-                        <div class="col">
-                            DO = E
+                        <div class="col-12 col-xl-auto">
+                            DO = E<br/>
+                            4/4 Kuat dan Semangat
                         </div>
-                        <div class="col text-end">
-                            Juventius Paulus Sudarno (1968)
+                        <div class="col text-xl-end">
+                            Syair & lagu : Juventius Paulus Sudarno (1968)<br/>
+                            Musik : Pudjo Yuwono
                         </div>
                     </div>
                 </div>
