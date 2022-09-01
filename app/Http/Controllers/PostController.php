@@ -34,22 +34,27 @@ class PostController extends Controller
     public function store(Request $request)
     {
         try {
-            $thumbnail      = $request->file('thumbnail');
-            $thumbnail_ext  = $thumbnail->extension();
-            $thumbnail_size = $thumbnail->getSize();
-            $thumbnail_path = $thumbnail->store('public/attachments');
 
-            $file = File::create([
-                'owner_id'  => auth()->user()->id,
-                'asset_url' => $thumbnail_path,
-                'extension' => $thumbnail_ext,
-                'size'      => $thumbnail_size,
-                'is_active' => 1,
-            ]);
-            $file->save();
+            $file = null;
+            if ($request->file('thumbnail')) {
+                $thumbnail      = $request->file('thumbnail');
+                $thumbnail_ext  = $thumbnail->extension();
+                $thumbnail_size = $thumbnail->getSize();
+                $thumbnail_path = $thumbnail->store('public/attachments');
+
+                $file = File::create([
+                    'owner_id'  => auth()->user()->id,
+                    'asset_url' => $thumbnail_path,
+                    'extension' => $thumbnail_ext,
+                    'size'      => $thumbnail_size,
+                    'is_active' => 1,
+                ]);
+                $file->save();
+                $file = $file->id;
+            }
 
             $post = Post::create([
-                'thumbnail_id'      => $file->id,
+                'thumbnail_id'      => $file,
                 'author_id'         => auth()->user()->id,
                 'organization_id'   => session('run_as'),
                 'title'             => $request->title,
