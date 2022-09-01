@@ -162,9 +162,11 @@ class GuestController extends Controller
     public function berita_preview(Post $post)
     {
         if ($post->status_id == 3) abort(404);
+        $attachments    = PostAttachment::where('post_id', $post->id)->get();
 
         return view('guest.berita_preview', [
             'posts'     => $post,
+            'attachments'   => $attachments,
         ]);
     }
 
