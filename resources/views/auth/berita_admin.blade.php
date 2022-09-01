@@ -24,7 +24,11 @@
                         <input class="form-control" id="thumbnail" name="thumbnail" accept="image/*" type="file">
                     </div>
                     <div class="mb-4 col-12 col-sm-5">
+                        @if ($post->thumbnail_id)
                         <img src="{{ url($post->thumbnail->asset_url) }}" alt="{{ $post->title }}" class="img-thumbnail">
+                        @else
+                        <img src="{{ url('public/files/thumbnail_default.jpg') }}" alt="{{ $post->title }}" class="img-thumbnail">
+                        @endif
                     </div>
                 </div>
                 <div class="mb-4">
