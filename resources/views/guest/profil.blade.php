@@ -172,8 +172,8 @@
                 <div class="col-12 col-lg-7" data-show="startbox" data-show-delay="100">
                     Kami pelajar SMA dua puluh empat Jakarta<br/>
                     Kami tunas muda harapan Nusa Bangsa Negara<br/>
-                    Mari belajar dan berjuang tuk kejayaan bangsa<br/>
-                    Dengan berjiwa pancasila membina Negara Bahagia
+                    Marilah belajar dan berjuang tuk kejayaan bangsa<br/>
+                    Dengan berjiwa Pancasila membina Negara Bahagia
                 </div><!-- Item-->
                 <div class="col-12 col-lg-7" data-show="startbox" data-show-delay="200">
                     Belajar giat belajar giat itulah semboyan kita<br/>
