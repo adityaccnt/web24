@@ -10,7 +10,7 @@
         <div class="d-flex flex-column flex-sm-row gap-3">
             <mwc-select class="mw-50 mb-2 mb-md-0 ubah" outlined label="Sebagai">
                 @foreach ($organizations as $organization)
-                <mwc-list-item value="{{ url('sebagai/' . $organization->id) }}" @if(session('run_as')==$organization->organization->id ) selected @endif>{{ $organization->organization->name }}</mwc-list-item>
+                <mwc-list-item value="{{ url('sebagai/' . $organization->organization_id) }}" @if(session('run_as')==$organization->organization_id ) selected @endif>{{ $organization->organization->name }}</mwc-list-item>
                 @endforeach
             </mwc-select>
         </div>
