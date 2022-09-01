@@ -24,7 +24,7 @@
                                 </svg></div>
                             <div class="flex-grow-1 ms-15">
                                 <h5 class="m-0">Informasi Kontak:</h5>
-                                <p class="m-0 mt-15">Email: sman24jakarta@yahoo.com <br>Telepon: 021 573-6984</p>
+                                <p class="m-0 mt-15">Email: sman24jakartapusat@gmail.com <br>Telepon: 021 573-6984</p>
                             </div>
                         </div><!-- Item-->
                         <div class="d-flex mt-50" data-show="startbox" data-show-delay="100">
