@@ -31,7 +31,7 @@
                                 @if ($post->thumbnail_id)                                    
                                 <a class="card-img rounded-0 image-link" href="{{ url($post->thumbnail->asset_url) }}" data-img-height style="--img-height: 72%;">
                                     <span class="badge bg-dark text-white position-absolute top-0 start-0 z-index-1 mt-20 ms-20">{{ $post->organization->name }}</span>
-                                    <img loading="lazy" src="{{ url($post->thumbnail->asset_ur) }}" alt="{{ $post->title }}" >
+                                    <img loading="lazy" src="{{ url($post->thumbnail->asset_url) }}" alt="{{ $post->title }}" >
                                 </a>
                                 @else
                                 <a class="card-img rounded-0 image-link" href="{{ url('public/files/thumbnail_default.jpg') }}" data-img-height style="--img-height: 72%;">
