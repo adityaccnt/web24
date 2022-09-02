@@ -1,5 +1,5 @@
 @extends('guest.layout')
-@section('title', 'Ekstrakurikuler ' . $organization->name)
+@section('title', $organization->name)
 @section('main')
     <!-- Main-->
     <div class="content-wrap ">
