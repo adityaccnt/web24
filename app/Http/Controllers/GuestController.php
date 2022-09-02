@@ -43,7 +43,7 @@ class GuestController extends Controller
         return view('guest.profil', [
             'ekskul'        => Organization::where('status', 'ekskul')->count(),
             'pendidik'      => User::where('role', 'G')->count(),
-            'managements'   => OrganizationMember::where('position_id', '<', 11)->orderBy('position_id')->get(),
+            'managements'   => OrganizationMember::where('position_id', '<', 11)->orWhere('position_id', '40')->orderByRaw('FIELD(position_id,1,40,2,3,4,5,6,7,8,9,10,0)')->get(),
         ]);
     }
 
