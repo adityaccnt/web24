@@ -26,7 +26,7 @@
                     </div>
                     <h4 class="service-box-title mb-15">{{ $server->name }}</h4>
                     <p class="service-box-text font-size-15 mb-30">{{ ($server->status_id==1)?'Online':'Offline'; }}</p>
-                    <a class="service-box-arrow stretched-link mt-30" href="{{ $server->url }}">
+                    <a class="service-box-arrow stretched-link mt-30" href="http://{{ $server->url }}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="14" fill="none">
                             <path stroke="currentColor" stroke-width="1.7" d="M0 7h18m0 0-6.75-6M18 7l-6.75 6"></path>
                         </svg>
