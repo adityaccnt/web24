@@ -6,6 +6,7 @@ use App\Models\File;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Album;
+use App\Models\Server;
 use App\Models\Gallery;
 use App\Models\Facility;
 use App\Models\Achievement;
@@ -211,5 +212,13 @@ class GuestController extends Controller
     public function kontak()
     {
         return view('guest.kontak');
+    }
+
+    public function aplikasi()
+    {
+        $servers = Server::all();
+        return view('guest.aplikasi', [
+            'servers' => $servers->load(['status'])
+        ]);
     }
 }

@@ -11,6 +11,7 @@ use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\ManagementController;
 use App\Http\Controllers\AchievementController;
+use App\Http\Controllers\ServerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,7 @@ Route::get('/galeri', [GuestController::class, 'galeri']);
 Route::get('/galeri/{album:slug}', [GuestController::class, 'galeri_show']);
 Route::get('/galeri/kategori/{organization:slug}', [GuestController::class, 'galeri_category']);
 Route::get('/kontak', [GuestController::class, 'kontak']);
+Route::get('/aplikasi', [GuestController::class, 'aplikasi']);
 
 Route::middleware('guest')->group(function () {
     Route::get('/masuk', [AuthController::class, 'masuk'])->name('login');
@@ -56,6 +58,9 @@ Route::middleware('auth')->group(function () {
     Route::resource('/kelola-manajemen', ManagementController::class);
     Route::resource('/kelola-fasilitas', FacilityController::class);
     Route::resource('/kelola-prestasi', AchievementController::class);
+    Route::resource('/kelola-server', ServerController::class);
+    Route::get('/kelola-server/{server:name}/refresh', [ServerController::class, 'refresh']);
+    Route::get('/kelola-server/{server:name}/switch/{status}', [ServerController::class, 'status']);
 
     Route::get('/pratinjau-galeri/{album:slug}', [GuestController::class, 'galeri_preview']);
     Route::resource('/kelola-galeri', GalleryController::class);

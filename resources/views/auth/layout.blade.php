@@ -135,6 +135,10 @@
                                 <div class="nav-link-icon"><i class="material-icons">military_tech</i></div>
                                 Prestasi
                             </a>
+                            <a class="nav-link{{ Request::is('kelola-server*') ? ' active' : '' }}" href="{{ url('/kelola-server') }}">
+                                <div class="nav-link-icon"><i class="material-icons">dns</i></div>
+                                Server
+                            </a>
                             {{-- <a class="nav-link{{ Request::is('kelola-testimoni*') ? ' active' : '' }}" href="{{ url('/kelola-testimoni') }}">
                                 <div class="nav-link-icon"><i class="material-icons">chat_bubble</i></div>
                                 Testimoni

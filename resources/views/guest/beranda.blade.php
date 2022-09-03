@@ -16,6 +16,7 @@
                             <div class="row">
                                 <div class="col-lg-7 offset-lg-1">
                                     <h1 class="text-white mb-40">Pengaplikasian Teknologi di Sekolah</h1>
+                                    <a class="btn btn-accent-1" href="{{ url('aplikasi') }}" target="_self">Aplikasi Kami</a>
                                 </div>
                             </div>
                         </div>
@@ -32,6 +33,7 @@
                             <div class="row">
                                 <div class="col-lg-7 offset-lg-1">
                                     <h1 class="text-white mb-40">Menerapkan Kurikulum 2013 dan Merdeka</h1>
+                                    <a class="btn btn-accent-1" href="{{ url('berita/perbedaan-kurikulum-2013-dengan-kurikulum-merdeka-di-jenjang-sma') }}" target="_self">Apa bedanya?</a>
                                 </div>
                             </div>
                         </div>
