@@ -22,17 +22,14 @@
                 </div>
                 <div class="mb-4">
                     <label class="form-label mb-2 text-muted">Kutipan awal <span class="text-danger">*</span></label>
-                    <input class="mb-4" id="excerpt" type="hidden" name="excerpt">
-                    <trix-editor class="form-control" spellcheck="false" input="excerpt" required>{{ old('excerpt') }}</trix-editor>
+                    <textarea id="summernote" name="excerpt">{{ old('excerpt') }}</textarea>
                     @error('excerpt')
                     <div class="small text-danger">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="mb-4">
                     <label class="form-label mb-2 text-muted">Konten</label>
-                    <textarea id="summernote" name="content">{{ old('content') }}</textarea>
-                    {{-- <input class="mb-4" id="content" type="hidden" name="content">
-                    <trix-editor class="form-control" spellcheck="false" input="content">{{ old('content') }}</trix-editor> --}}
+                    <textarea id="summernote2" name="content">{{ old('content') }}</textarea>
                     @error('content')
                     <div class="small text-danger">{{ $message }}</div>
                     @enderror
@@ -58,10 +55,10 @@
 
 <script>
     $(document).ready(function() {
-        $('#summernote').summernote(); 
+        $('#summernote, #summernote2').summernote(); 
     });
     
-    $("#summernote").on("summernote.enter", function(we, e) {
+    $("#summernote, #summernote2").on("summernote.enter", function(we, e) {
         $(this).summernote("pasteHTML", "<br><br>");
         e.preventDefault();
     });
