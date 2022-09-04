@@ -76,8 +76,8 @@ class GuestController extends Controller
         $result         = array();
         $schedules      = json_decode($organization->schedule, true);
         $days           = array('Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu');
-        $files          = OrganizationGallery::where('organization_id', $organization->id)->get();
-        $organizations  = Organization::where('is_active', 1)->where('status', 'ekskul')->get();
+        $files          = OrganizationGallery::with('file')->where('organization_id', $organization->id)->get();
+        $organizations  = Organization::with('logo')->where('is_active', 1)->where('status', 'ekskul')->get();
 
         if ($organization->schedule <> null && count($schedules) > 0)
             foreach ($schedules as $key => $schedule) if ($schedule <> null) $result[] = $days[$key];
@@ -116,7 +116,7 @@ class GuestController extends Controller
 
     public function fasilitas()
     {
-        $facilities = Facility::orderBy('name')->get();
+        $facilities = Facility::with(['file'])->orderBy('name')->get();
         return view('guest.fasilitas', [
             'facilities'    => $facilities,
         ]);
@@ -124,7 +124,7 @@ class GuestController extends Controller
 
     public function prestasi()
     {
-        $achievements = Achievement::orderBy('name')->get();
+        $achievements = Achievement::with(['file'])->orderBy('published_at', 'desc')->get();
         return view('guest.prestasi', [
             'achievements' => $achievements,
         ]);
