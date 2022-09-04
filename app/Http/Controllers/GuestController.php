@@ -22,13 +22,13 @@ class GuestController extends Controller
     {
         $post   = null;
         $posts  = null;
-        $last   = Post::where('status_id', 1)->latest('published_at');
+        $last   = Post::with(['thumbnail'])->where('status_id', 1)->latest('published_at');
         if ($last->count() > 0) {
             $post   = $last->firstOrFail();
             $posts  = $last->where('id', '<>', $post->id)->limit(3)->get();
         }
 
-        $albums = Album::latest('published_at')->where('status_id', 1)->limit(5)->get();
+        $albums = Album::with(['thumbnail'])->latest('published_at')->where('status_id', 1)->limit(5)->get();
 
         return view('guest.beranda', [
             'post'     => $post,
@@ -55,7 +55,7 @@ class GuestController extends Controller
 
     public function pendidik()
     {
-        $teachers = User::where('role', 'G')->orderBy('name')->get();
+        $teachers = User::with(['position','avatar'])->where('role', 'G')->orderBy('name')->get();
         return view('guest.pendidik', [
             'teachers' => $teachers,
         ]);
@@ -63,7 +63,7 @@ class GuestController extends Controller
 
     public function tenaga_kependidikan()
     {
-        $teachers = User::where('role', 'K')->orderBy('name')->get();
+        $teachers = User::with(['position','avatar'])->where('role', 'K')->orderBy('name')->get();
         return view('guest.tendik', [
             'teachers' => $teachers,
         ]);
