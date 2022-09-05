@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="{{ url('assets/css/main.css') }}">
     {{-- jQuery --}}
     <script src="{{ url('assets/vendors/js/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url('js/instafeed.js') }}"></script>
     {{-- Google tag (gtag.js) --}}
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YJQHTC68B1"></script>
     <script>

@@ -254,7 +254,35 @@
             </div>
         </div>
     </div>
-    
+
+    <div class="pb-100 pt-50 position-relative bg-gray-light">
+        <div class="container">
+            <div class="row my-40">
+                <div class="col-lg-6 offset-lg-3 text-center px-lg-50">
+                    <h2 class="mb-25 px-lg-10" data-show="startbox">Instagram</h2>
+                    <p class="m-0" data-show="startbox" data-show-delay="100">
+                        Sosial media juga menjadi cara menyebarluaskan informasi. Kami hadir di instagram! ikuti <a class="fw-bold" href="https://instagram.com/smanegeri24jakarta">@smanegeri24jakarta</a>
+                    </p>
+                </div>
+            </div>
+            <div class="swiper" data-swiper-slides="1" data-swiper-breakpoints="828:2, 1024:3" data-swiper-gap="30" data-swiper-grabcursor="true" data-show="startbox">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper" id="instafeed">
+                    </div>
+                </div>
+                <div class="swiper-button-prev swiper-button-position-1 swiper-button-white shadow">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="14" fill="none">
+                        <path fill="currentColor" fill-rule="evenodd" d="m3.96 6.15 5.08-4.515L7.91.365.445 7l7.465 6.635 1.13-1.27L3.96 7.85h15.765v-1.7H3.96Z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+                <div class="swiper-button-next swiper-button-position-1 swiper-button-white shadow">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="14" fill="none">
+                        <path fill="currentColor" fill-rule="evenodd" d="m16.21 6.15-5.08-4.515 1.13-1.27L19.725 7l-7.465 6.635-1.13-1.27 5.08-4.515H.445v-1.7H16.21Z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>    
     <div class="bg-linear-gradient pt-120 pb-130">
         <div class="container">
 
@@ -361,4 +389,14 @@
             
         </div>
     </div>
+
+    <script type="text/javascript">
+        var feed = new Instafeed({
+          accessToken: 'IGQVJXUGVIcmlyT0ZAubWtzYU5laTRYb1liSVRDTnZAadmxadWJzLUc2QXNFdjIyemNWZAVhyZADFTS1ZA3TzdBekJGQUVDNWtzY2loTzZAad3NtXzBNS183eURkUTIxMkJnaXhOSGpaTnY4SDVJemhqVFh3bAZDZD',
+          template:'<div class="swiper-slide pt-15"><div data-filters="branding"><a class="card card-portfolio  image-link overflow-hidden lift rounded-4" href="\{\{link}}"><span class="card-img" data-img-height style="--img-height: 100%;"><img loading="lazy" src="\{\{image}}" alt=""></span></a></div></div>',
+          limit: 18
+        });
+        feed.run();
+    </script>
+
 @endsection
