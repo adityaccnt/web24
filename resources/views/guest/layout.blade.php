@@ -121,7 +121,7 @@
             <div class="navbar-wrapper">
                 <div class="navbar-head">
                     <a class="navbar-brand d-block d-md-none" href="{{ url('/') }}">
-                        <img src="{{ url('public/files/logo.png') }}" height="50" alt="Logo SMAN 24 Jakarta">
+                        <img src="{{ url('public/files/logo.png') }}" height="50" alt="SMAN 24 Jakarta">
                     </a>
                     <a class="navbar-toggle popup-modal-dismiss" href="#"><span></span><span></span><span></span></a></div>
                 <div class="navbar-body">
@@ -177,7 +177,7 @@
                 <div class="row d-flex align-items-center gy-25">
                     <div class="col-12 col-lg-3 text-center text-lg-start">
                         <a class="d-block" href="{{ url('/') }}">
-                            <img src="{{ url('public/files/logo.png') }}" height="50" alt="Logo SMAN 24 Jakarta">
+                            <img src="{{ url('public/files/logo.png') }}" height="50" alt="SMAN 24 Jakarta">
                         </a>
                     </div>
                     <div class="col-12 col-lg-6">
