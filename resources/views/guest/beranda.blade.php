@@ -309,6 +309,25 @@
                                     </svg>
                                 </div>
                                 <div class="feedback-header d-flex align-items-center mb-35">
+                                    <div class="flex-shrink-0"><img class="rounded-circle" loading="lazy" src="assets/img/root/testimoni-0-g.png" alt="" height="64" width="64"></div>
+                                    <div class="flex-grow-1 ms-20">
+                                        <h6 class="feedback-author mb-5 text-truncate">Delia Putri Rahayu</h6>
+                                        <p class="feedback-position text-gray-dark font-size-14 m-0 text-truncate">2022 &ndash; Inst. Pertanian Bogor</p>
+                                        <p class="feedback-position text-gray-dark font-size-14 m-0 text-truncate">Biologi</p>
+                                    </div>
+                                </div>
+                                <p class="feedback-text fw-medium text-dark m-0">“ Selama 3 tahun menjalankan pendidikan di SMAN 24 Jakarta, saya belajar banyak hal, baik itu softskill maupun hardskill, begitu banyak hal yang menyenangkan dalam setiap proses pembelajaran, dari mulai tenaga pendidik, staff, teman-teman, lingkungan dan fasilitas yang mendukung saya dalam mengembangkan diri dan melangkah maju untuk meraih PTN yang saya mimpikan. Semangat selalu para pejuang mimpi! ”</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide h-auto">
+                            <!-- Feedback-->
+                            <div class="feedback bg-white rounded-4 h-100">
+                                <div class="feedback-stars lh-1 mb-30">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="90" height="16" fill="none">
+                                        <path fill="#FFBB38" d="m8.595 0 2.656 5.266 5.94.85-4.298 4.096L13.907 16l-5.312-2.734L3.283 16l1.015-5.788L0 6.116l5.94-.85L8.594 0ZM26.798 0l2.656 5.266 5.94.85-4.299 4.096L32.11 16l-5.312-2.734L21.486 16l1.014-5.788-4.298-4.096 5.94-.85L26.798 0ZM45 0l2.656 5.266 5.94.85-4.298 4.096L50.312 16 45 13.266 39.688 16l1.014-5.788-4.298-4.096 5.94-.85L45 0ZM63.202 0l2.656 5.266 5.94.85-4.298 4.096L68.514 16l-5.312-2.734L57.89 16l1.014-5.788-4.298-4.096 5.94-.85L63.202 0ZM81.404 0l2.656 5.266 5.94.85-4.298 4.096L86.716 16l-5.312-2.734L76.092 16l1.014-5.788-4.297-4.096 5.94-.85L81.403 0Z" />
+                                    </svg>
+                                </div>
+                                <div class="feedback-header d-flex align-items-center mb-35">
                                     <div class="flex-shrink-0"><img class="rounded-circle" loading="lazy" src="assets/img/root/testimoni-1-g.png" alt="" height="64" width="64"></div>
                                     <div class="flex-grow-1 ms-20">
                                         <h6 class="feedback-author mb-5 text-truncate">Aulia Khairunnisa Isman</h6>
