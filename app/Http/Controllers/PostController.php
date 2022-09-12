@@ -120,6 +120,50 @@ class PostController extends Controller
     {
         $post = Post::where('slug', $post)->firstOrFail();
 
+        $file = null;
+        if ($request->file('thumbnail')) {
+            $thumbnail      = $request->file('thumbnail');
+            $thumbnail_ext  = $thumbnail->extension();
+            $thumbnail_size = $thumbnail->getSize();
+            $thumbnail_path = $thumbnail->store('public/attachments');
+
+            $file = File::create([
+                'owner_id'  => auth()->user()->id,
+                'asset_url' => $thumbnail_path,
+                'extension' => $thumbnail_ext,
+                'size'      => $thumbnail_size,
+                'is_active' => 1,
+            ]);
+            $file->save();
+            $file = $file->id;
+
+            Post::where('id', $post->id)->update([
+                'thumbnail_id'      => $file,
+            ]);
+        }
+
+        if ($request->file('attachments')) {
+            foreach ($request->file('attachments') as $attachment) {
+                $attachment_ext  = $attachment->extension();
+                $attachment_size = $attachment->getSize();
+                $attachment_path = $attachment->store('public/thumbnails');
+
+                $file = File::create([
+                    'owner_id'  => auth()->user()->id,
+                    'asset_url' => $attachment_path,
+                    'extension' => $attachment_ext,
+                    'size'      => $attachment_size,
+                    'is_active' => 1,
+                ]);
+                $file->save();
+
+                PostAttachment::create([
+                    'post_id'   => $post->id,
+                    'file_id'   => $file->id,
+                ]);
+            }
+        }
+
         Post::where('id', $post->id)->update([
             'title'             => $request->title,
             'content'           => $request->content,

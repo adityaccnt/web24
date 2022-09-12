@@ -33,8 +33,9 @@
                 </div>
                 <div class="mb-4">
                     <label class="form-label mb-2 text-muted">Kutipan awal <span class="text-danger">*</span></label>
-                    <input class="mb-4" id="excerpt" type="hidden" name="excerpt">
-                    <trix-editor class="form-control" spellcheck="false" input="excerpt" required>{!! old('excerpt',$post->excerpt) !!}</trix-editor>
+                    <textarea id="summernote2" name="excerpt">{!! old('content',$post->excerpt) !!}</textarea>
+                    {{-- <input class="mb-4" id="excerpt" type="hidden" name="excerpt">
+                    <trix-editor class="form-control" spellcheck="false" input="excerpt" required>{!! old('excerpt',$post->excerpt) !!}</trix-editor> --}}
                     @error('excerpt')
                     <div class="small text-danger">{{ $message }}</div>
                     @enderror
@@ -94,7 +95,7 @@
 <script>
     $(document).ready(function() {
         $('#summernote').summernote();
-        
+        $('#summernote2').summernote();
     });
 
     let title   = document.getElementById('title');
