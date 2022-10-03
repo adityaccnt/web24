@@ -25,7 +25,7 @@ class LearningController extends Controller
         $teachers   = User::where('role', 'G')->orderby('name')->get();
         $subjects   = Subject::orderby('name')->get();
         $rombels    = Rombel::orderby('name')->get();
-        $learnings  = Learning::select(Learning::raw('DISTINCT subject_id, COUNT(*) AS count_pd, teacher_id'))->groupby('subject_id')->groupby('teacher_id')->orderbydesc('updated_at')->get();
+        $learnings  = Learning::select(Learning::raw('DISTINCT subject_id, COUNT(*) AS count_pd, teacher_id'))->groupby('subject_id')->groupby('teacher_id')->get();
         return view('auth.rapor.pembelajaran', [
             'users'     => $users,
             'teachers'  => $teachers,
