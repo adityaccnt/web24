@@ -43,4 +43,14 @@ class User extends Authenticatable
     {
         return $this->belongsTo(File::class);
     }
+
+    public function rombel()
+    {
+        return $this->belongsTo(StudentRombel::class, 'id', 'student_id');
+    }
+
+    public function rombel_name()
+    {
+        return $this->rombel->belongsTo(Rombel::class, 'rombel_id', 'id');
+    }
 }

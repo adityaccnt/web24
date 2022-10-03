@@ -4,7 +4,7 @@
 @section('main')
     <!-- Main-->
     <div class="content-wrap ">
-        <div class="pt-210 pb-130 bg-linear-gradient text-center shape-parent">
+        <div class="pt-210 pb-130 bg-linear-gradient text-center shape-parent" style="min-height: 100vh">
             <!-- Shape-->
             <div class="shape justify-content-start"><img loading="lazy" src="{{ url('assets/img/root/404-shape-326x321.png') }}" alt="" width="326" height="321"></div><!-- Shape-->
             <div class="shape justify-content-end align-items-end"><img loading="lazy" src="{{ url('assets/img/root/404-shape-301x281.png') }}" alt="" width="301" height="281"></div><!-- Shape-->

@@ -1,17 +1,23 @@
 <?php
 
+use App\Models\Learning;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\OsisController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\GuestController;
+use App\Http\Controllers\ScoreController;
 use App\Http\Controllers\StaffController;
+use App\Http\Controllers\RombelController;
+use App\Http\Controllers\ServerController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\FacilityController;
+use App\Http\Controllers\LearningController;
 use App\Http\Controllers\ManagementController;
 use App\Http\Controllers\AchievementController;
-use App\Http\Controllers\ServerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,9 +54,13 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/pratinjau-berita/{post:slug}', [GuestController::class, 'berita_preview']);
+    Route::get('/keluar', [AuthController::class, 'keluar']);
+    Route::get('/dasbor', [AuthController::class, 'dasbor']);
+    Route::get('/s/{id}', [AuthController::class, 'sesi']);
     Route::get('/kata-sandi', [AuthController::class, 'view_password']);
     Route::patch('/kata-sandi', [AuthController::class, 'change_password']);
+
+    // if (Session::get('app') == 'web') {
     Route::resource('/kelola-berita', PostController::class);
     Route::resource('/kelola-osis', OsisController::class);
     Route::resource('/kelola-pendidik', TeacherController::class);
@@ -59,14 +69,34 @@ Route::middleware('auth')->group(function () {
     Route::resource('/kelola-fasilitas', FacilityController::class);
     Route::resource('/kelola-prestasi', AchievementController::class);
     Route::resource('/kelola-server', ServerController::class);
+    Route::resource('/kelola-galeri', GalleryController::class);
+    Route::get('/pratinjau-berita/{post:slug}', [GuestController::class, 'berita_preview']);
     Route::get('/kelola-server/{server:name}/refresh', [ServerController::class, 'refresh']);
     Route::get('/kelola-server/{server:name}/switch/{status}', [ServerController::class, 'status']);
-
     Route::get('/pratinjau-galeri/{album:slug}', [GuestController::class, 'galeri_preview']);
-    Route::resource('/kelola-galeri', GalleryController::class);
-
     Route::get('/sebagai/{organization}', [AuthController::class, 'sebagai']);
     Route::get('/post-slug', [PostController::class, 'slug']);
-    Route::get('/keluar', [AuthController::class, 'keluar']);
-    Route::get('/dasbor', [AuthController::class, 'dasbor']);
+    // }
+
+    // if (session::has('app')) {
+    Route::get('/kelola-nilai/excel/{rombel}', [LearningController::class, 'export_excel']);
+
+    Route::resource('/kelola-pembelajaran', LearningController::class);
+    Route::resource('/kelola-rombel', RombelController::class);
+    Route::resource('/kelola-mapel', SubjectController::class);
+    Route::get('/kelola-nilai', function () {
+        return abort(404);
+    });
+    Route::get('/g/{id}', function ($id) {
+        $user   = auth()->user()->id;
+        $get    = Learning::where('subject_id', $id)->where('teacher_id', $user)->get();
+        if ($get->count() > 0 || Session::get('run_as') == 1)
+            session([
+                'run_subject' => $id
+            ]);
+        return redirect('/dasbor');
+    });
+    Route::resource('/kelola-nilai/{rombel}', ScoreController::class);
+    // }
+
 });
