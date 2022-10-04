@@ -27,7 +27,7 @@
             <div class="display-6">Nilai</div>
             <p>Setiap melakukan perubahan nilai, tekan tombol <b>Simpan</b> pada bagian bawah untuk menyimpan perubahan.
                 Jika
-                tidak, perubahan yang dibuat tidak akan tersimpan. Rentang nilai adalah 1-100 dan sikap adalah A/B/C/D.
+                tidak, perubahan yang dibuat tidak akan tersimpan. Rentang nilai adalah 0-100 dan sikap adalah A/B/C/D.
                 Nilai tidak diizinkan dalam bentuk pecahan. Tanda bintang menandakan wajib diisi.</p>
             {{-- <p class="card-text">Mengisi dan menampilkan daftar nilai, gunakan tombol di bawah ini untuk mengisi dalam bentuk
                 excel yang telah disediakan.</p> --}}
