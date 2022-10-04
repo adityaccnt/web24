@@ -44,11 +44,9 @@
                                                 @endif
                                                 <form class="mb-5" action="masuk" method="POST">
                                                     @csrf
-                                                    <div class="mb-4"><mwc-textfield class="w-100" label="Pengguna" name="email" outlined required></mwc-textfield></div>
-                                                    <div class="mb-4"><mwc-textfield class="w-100" label="Kata Sandi" name="password" outlined required type="password"></mwc-textfield></div>
-                                                    <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                        <button type="submit" class="btn btn-primary">Masuk</a>
-                                                    </div>
+                                                    <input type="text" placeholder="Pengguna" name="email" class="form-control form-control-md mb-4" required autofocus>
+                                                    <input type="password" placeholder="Kata Sandi" name="password" class="form-control form-control-md mb-4" required>
+                                                    <button type="submit" class="btn btn-primary">Masuk</a>
                                                 </form>
                                             </div>
                                         </div>
