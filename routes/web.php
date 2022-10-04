@@ -80,6 +80,7 @@ Route::middleware('auth')->group(function () {
 
     // if (session::has('app')) {
     Route::get('/kelola-nilai/excel/{rombel}', [LearningController::class, 'export_excel']);
+    Route::post('/kelola-nilai/excel/import', [LearningController::class, 'import']);
 
     Route::resource('/kelola-pembelajaran', LearningController::class);
     Route::resource('/kelola-rombel', RombelController::class);

@@ -8,7 +8,7 @@ use App\Models\Subject;
 use App\Models\Learning;
 use Illuminate\Http\Request;
 use App\Exports\LearningExport;
-
+use App\Imports\ScoresImport;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Session;
 
@@ -118,5 +118,11 @@ class LearningController extends Controller
         $subject_id = Session::get('run_subject');
         $subject    = Subject::find($subject_id)->name;
         return Excel::download(new LearningExport($rombel_id), "Rapor - $subject.xlsx");
+    }
+
+    public function import(Request $request)
+    {
+        Excel::import(new ScoresImport, $request->file('file'));
+        return back()->with('success', 'Data berhasil diimport');
     }
 }

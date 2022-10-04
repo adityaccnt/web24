@@ -31,45 +31,45 @@
                 Nilai tidak diizinkan dalam bentuk pecahan. Tanda bintang menandakan wajib diisi.</p>
             {{-- <p class="card-text">Mengisi dan menampilkan daftar nilai, gunakan tombol di bawah ini untuk mengisi dalam bentuk
                 excel yang telah disediakan.</p> --}}
-            {{-- <button class="btn btn-success text-white px-3" type="button" data-bs-toggle="modal"
+            <button class="btn btn-success text-white px-3" type="button" data-bs-toggle="modal"
                 data-bs-target="#modalTambah">
                 Format Excel
-            </button> --}}
+            </button>
             <div class="modal fade" id="modalTambah" tabindex="-1">
-                <div class="modal-dialog modal-dialog-scrollable">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Format Excel</h5>
-                            <button class="btn-close" type="button" data-bs-dismiss="modal"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form>
+                <form enctype="multipart/form-data" method="POST" action="{{ url('/kelola-nilai/excel/import') }}">
+                    @csrf
+                    <div class="modal-dialog modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Format Excel</h5>
+                                <button class="btn-close" type="button" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
                                 <div class="mb-3">
                                     <label class="form-label mb-1">Unduh nilai</label>
                                     <div>
-                                        <a class="btn btn-success"
-                                            href="{{ url('/kelola-nilai/excel/' . auth()->user()->id) }}">
-                                            Unduh Format
+                                        <a class="btn btn-success" href="{{ url('/kelola-nilai/excel/' . $rombel) }}">
+                                            Unduh Format Excel
                                         </a>
                                     </div>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label mb-1">Unggah nilai</label>
-                                    <input class="form-control" type="file"
+                                    <input class="form-control" type="file" name="file"
                                         accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" required
                                         autocomplete="off">
                                 </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button class="btn btn-text-primary me-2" type="button" data-bs-dismiss="modal"
-                                autofocus="disabled">Tutup</button>
-                            <button class="btn btn-primary" type="button">
-                                Simpan
-                            </button>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-text-primary me-2" type="button" data-bs-dismiss="modal"
+                                    autofocus="disabled">Tutup</button>
+                                <button class="btn btn-primary" type="submit">
+                                    Simpan
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
 
             <hr class="my-5" />
@@ -224,10 +224,10 @@
             </form>
         </div>
     </div>
-    <script>
+    {{-- <script>
         $('.modal-footer .btn-primary').click(function() {
             $(this).attr('disabled', 'disabled').html(
                 '<span class="spinner-border spinner-border-sm me-3"></span>Tunggu')
         })
-    </script>
+    </script> --}}
 @endsection
