@@ -5,7 +5,7 @@
         <div class="card-body p-5">
 
             @if (!$scores)
-            <div class="h5 text-center text-muted">Belum ada penugasan</div>
+                <div class="h5 text-center text-muted">Belum ada penugasan</div>
             @else
                 @if (Session::get('run_subject') == 10)
                     <table class="table text-center">
@@ -24,26 +24,10 @@
                             @foreach ($scores as $score)
                                 <tr>
                                     <td class="text-start px-0">{{ $no++ }}.</td>
-                                    <td class="text-start px-0">{{ $score->name }}<input type="hidden" name="learning_id[]"
-                                            value="{{ $score->learning_id }}"></td>
-                                    <td>
-                                        <input type="number" name="sakit[]" class="form-control text-center px-0 m-auto"
-                                            maxlength="3" style="width: 6ch"
-                                            @if ($score->sakit) value="{{ $score->sakit }}" @endif
-                                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
-                                    </td>
-                                    <td>
-                                        <input type="number" name="ijin[]" class="form-control text-center px-0 m-auto"
-                                            maxlength="3" style="width: 6ch"
-                                            @if ($score->ijin) value="{{ $score->ijin }}" @endif
-                                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
-                                    </td>
-                                    <td>
-                                        <input type="number" name="alpa[]" class="form-control text-center px-0 m-auto"
-                                            maxlength="3" style="width: 6ch"
-                                            @if ($score->alpa) value="{{ $score->alpa }}" @endif
-                                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
-                                    </td>
+                                    <td class="text-start px-0">{{ $score->name }}
+                                    <td>{{ $score->sakit }}</td>
+                                    <td>{{ $score->ijin }}</td>
+                                    <td>{{ $score->alpa }}</td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -77,61 +61,15 @@
                                 @foreach ($scores as $score)
                                     <tr>
                                         <td class="text-start px-0">{{ $no++ }}.</td>
-                                        <td class="text-start px-0">{{ $score->name }}<input type="hidden"
-                                                name="learning_id[]" value="{{ $score->learning_id }}"></td>
-                                        <td><input type="number" name="uh1[]" class="form-control text-center px-0"
-                                                maxlength="3" style="width: 6ch"
-                                                @if ($score->uh1) value="{{ $score->uh1 }}" @endif
-                                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                                required></td>
-                                        <td><input type="number" name="rh1[]" class="form-control text-center px-0"
-                                                maxlength="3" style="width: 6ch"
-                                                @if ($score->rh1) value="{{ $score->rh1 }}" @endif
-                                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
-                                        </td>
-                                        <td><input type="number" name="uh2[]" class="form-control text-center px-0"
-                                                maxlength="3" style="width: 6ch"
-                                                @if ($score->uh2) value="{{ $score->uh2 }}" @endif
-                                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
-                                        </td>
-                                        <td><input type="number" name="rh2[]" class="form-control text-center px-0"
-                                                maxlength="3" style="width: 6ch"
-                                                @if ($score->rh2) value="{{ $score->rh2 }}" @endif
-                                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
-                                        </td>
-                                        <td><input type="number" name="k1[]" class="form-control text-center px-0"
-                                                maxlength="3" style="width: 6ch"
-                                                @if ($score->k1) value="{{ $score->k1 }}" @endif
-                                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                                required></td>
-                                        <td><input type="number" name="rk1[]" class="form-control text-center px-0"
-                                                maxlength="3" style="width: 6ch"
-                                                @if ($score->rk1) value="{{ $score->rk1 }}" @endif
-                                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
-                                        </td>
-                                        <td><input type="number" name="pts[]" class="form-control text-center px-0"
-                                                maxlength="3" style="width: 6ch"
-                                                @if ($score->pts) value="{{ $score->pts }}" @endif
-                                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                                required>
-                                        </td>
-                                        <td>
-                                            <select class="form-select px-2" name="sikap[]" style="width: 8ch" required>
-                                                <option value=""></option>
-                                                <option value="A" @if ($score->sikap && $score->sikap == 'A') selected @endif>
-                                                    A
-                                                </option>
-                                                <option value="B" @if ($score->sikap && $score->sikap == 'B') selected @endif>
-                                                    B
-                                                </option>
-                                                <option value="C" @if ($score->sikap && $score->sikap == 'C') selected @endif>
-                                                    C
-                                                </option>
-                                                <option value="D" @if ($score->sikap && $score->sikap == 'D') selected @endif>
-                                                    D
-                                                </option>
-                                            </select>
-                                        </td>
+                                        <td class="text-start px-0">{{ $score->name }}</td>
+                                        <td>{{ $score->uh1 }}</td>
+                                        <td>{{ $score->rh1 }}</td>
+                                        <td>{{ $score->uh2 }}</td>
+                                        <td>{{ $score->rh2 }}</td>
+                                        <td>{{ $score->k1 }}</td>
+                                        <td>{{ $score->rk1 }}</td>
+                                        <td>{{ $score->pts }}</td>
+                                        <td>{{ $score->sikap }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -156,42 +94,11 @@
                                 @foreach ($scores as $score)
                                     <tr>
                                         <td class="text-start px-0">{{ $no++ }}.</td>
-                                        <td class="text-start px-0">{{ $score->name }}<input type="hidden"
-                                                name="learning_id[]" value="{{ $score->learning_id }}"></td>
-                                        <td><input type="number" name="sum1[]" class="form-control text-center px-0"
-                                                maxlength="3" style="width: 6ch"
-                                                @if ($score->sum1) value="{{ $score->sum1 }}" @endif
-                                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                                required></td>
-                                        <td><input type="number" name="sum2[]" class="form-control text-center px-0"
-                                                maxlength="3" style="width: 6ch"
-                                                @if ($score->sum2) value="{{ $score->sum2 }}" @endif
-                                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                                required>
-                                        </td>
-                                        <td><input type="number" name="pts[]" class="form-control text-center px-0"
-                                                maxlength="3" style="width: 6ch"
-                                                @if ($score->pts) value="{{ $score->pts }}" @endif
-                                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                                required>
-                                        </td>
-                                        <td>
-                                            <select class="form-select px-2" name="sikap[]" style="width: 8ch" required>
-                                                <option value=""></option>
-                                                <option value="A" @if ($score->sikap && $score->sikap == 'A') selected @endif>
-                                                    A
-                                                </option>
-                                                <option value="B" @if ($score->sikap && $score->sikap == 'B') selected @endif>
-                                                    B
-                                                </option>
-                                                <option value="C" @if ($score->sikap && $score->sikap == 'C') selected @endif>
-                                                    C
-                                                </option>
-                                                <option value="D" @if ($score->sikap && $score->sikap == 'D') selected @endif>
-                                                    D
-                                                </option>
-                                            </select>
-                                        </td>
+                                        <td class="text-start px-0">{{ $score->name }}</td>
+                                        <td>{{ $score->sum1 }}</td>
+                                        <td>{{ $score->sum2 }}</td>
+                                        <td>{{ $score->pts }}</td>
+                                        <td>{{ $score->sikap }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
