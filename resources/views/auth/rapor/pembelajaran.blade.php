@@ -132,11 +132,11 @@
                             <td>{{ $learning->guru->name }}</td>
                             <td>{{ $learning->count_pd }} Orang</td>
                             <td>
-                                {{-- <a href="#" class="me-2"><span class="material-icons">edit</span></a> --}}
                                 <form method="post" action="{{ url('kelola-pembelajaran/' . $learning->teacher_id) }}">
                                     @csrf
                                     @method('delete')
                                     <input type="hidden" name="subject_id" value="{{ $learning->subject_id }}">
+                                    {{-- <a href="#" class="me-2 btn btn-text-primary p-0"><span class="material-icons">edit</span></a> --}}
                                     <button class="btn btn-text-primary p-0"><span
                                             class="material-icons">delete</span></button>
                                 </form>

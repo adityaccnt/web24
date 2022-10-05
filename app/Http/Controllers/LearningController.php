@@ -116,8 +116,9 @@ class LearningController extends Controller
     public function export_excel($rombel_id)
     {
         $subject_id = Session::get('run_subject');
+        $rombel     = Rombel::find($rombel_id)->name;
         $subject    = Subject::find($subject_id)->name;
-        return Excel::download(new LearningExport($rombel_id), "Rapor - $subject.xlsx");
+        return Excel::download(new LearningExport($rombel_id), "Rapor - $subject - $rombel.xlsx");
     }
 
     public function import(Request $request)
