@@ -233,7 +233,7 @@ class ScoreController extends Controller
                             'score_code_id' => 6,
                         ],
                         [
-                            'score' => $request->sum1[$key],
+                            'score' => $request->sum2[$key],
                         ]
                     );
                 } else {
