@@ -4,82 +4,9 @@
     <div class="card card-raised">
         <div class="card-body p-5">
 
-            @if (session()->has('success'))
-                <div class="alert alert-success alert-dismissible fade show mb-4" role="alert">
-                    <div class="row">
-                        <div class="material-icons me-2" style="width: 24px">check_circle</div>
-                        <div class="col">{{ session('success') }}</div>
-                        <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                </div>
-            @endif
-
-            @if (session()->has('failed'))
-                <div class="alert alert-danger alert-dismissible fade show mb-4" role="alert">
-                    <div class="row">
-                        <div class="material-icons me-2" style="width: 24px">error</div>
-                        <div class="col">{{ session('failed') }}</div>
-                        <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                </div>
-            @endif
-
-            @if (Session::get('run_subject') == 10)
-                <div class="display-6">Absen</div>
-                <p>Setiap melakukan perubahan nilai, tekan tombol <b>Simpan</b> pada bagian bawah untuk menyimpan perubahan.
-                    Jika tidak, perubahan yang dibuat tidak akan tersimpan. Hanya boleh angka bukan huruf.
-                    Jika tidak absen atau selalu hadir tidak perlu di isi 0 atau kosongkan.</p>
+            @if (!$scores)
+            <div class="h5 text-center text-muted">Belum ada penugasan</div>
             @else
-                <div class="display-6">Nilai</div>
-                <p>Setiap melakukan perubahan nilai, tekan tombol <b>Simpan</b> pada bagian bawah untuk menyimpan perubahan.
-                    Jika
-                    tidak, perubahan yang dibuat tidak akan tersimpan. Rentang nilai adalah 0-100 dan sikap adalah A/B/C/D.
-                    Nilai tidak diizinkan dalam bentuk pecahan. Tanda bintang menandakan wajib diisi.</p>
-            @endif
-            <button class="btn btn-success text-white px-3" type="button" data-bs-toggle="modal"
-                data-bs-target="#modalTambah">
-                Format Excel
-            </button>
-            <div class="modal fade" id="modalTambah" tabindex="-1">
-                <form enctype="multipart/form-data" method="POST" action="{{ url('/kelola-nilai/excel/import') }}">
-                    @csrf
-                    <div class="modal-dialog modal-dialog-scrollable">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">Format Excel</h5>
-                                <button class="btn-close" type="button" data-bs-dismiss="modal"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="mb-3">
-                                    <label class="form-label mb-1">Unduh nilai</label>
-                                    <div>
-                                        <a class="btn btn-success" href="{{ url('/kelola-nilai/excel/' . $rombel) }}">
-                                            Unduh Format Excel
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label mb-1">Unggah nilai</label>
-                                    <input class="form-control" type="file" name="file"
-                                        accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" required
-                                        autocomplete="off">
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button class="btn btn-text-primary me-2" type="button" data-bs-dismiss="modal"
-                                    autofocus="disabled">Tutup</button>
-                                <button class="btn btn-primary" type="submit">
-                                    Simpan
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-            <hr class="my-5" />
-            <form method="POST" action="{{ url()->current() }}">
-                @csrf
                 @if (Session::get('run_subject') == 10)
                     <table class="table text-center">
                         <thead>
@@ -97,8 +24,8 @@
                             @foreach ($scores as $score)
                                 <tr>
                                     <td class="text-start px-0">{{ $no++ }}.</td>
-                                    <td class="text-start px-0">{{ $score->name }}<input type="hidden"
-                                            name="learning_id[]" value="{{ $score->learning_id }}"></td>
+                                    <td class="text-start px-0">{{ $score->name }}<input type="hidden" name="learning_id[]"
+                                            value="{{ $score->learning_id }}"></td>
                                     <td>
                                         <input type="number" name="sakit[]" class="form-control text-center px-0 m-auto"
                                             maxlength="3" style="width: 6ch"
@@ -271,13 +198,7 @@
                         </table>
                     @endif
                 @endif
-
-                <div class="float-end">
-                    <button class="btn btn-primary" type="submit">
-                        Simpan
-                    </button>
-                </div>
-            </form>
+            @endif
         </div>
     </div>
     {{-- <script>

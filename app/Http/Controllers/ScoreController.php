@@ -17,7 +17,11 @@ class ScoreController extends Controller
      */
     public function index($rombel)
     {
-        $learning   = Learning::select('id', 'teacher_id', 'subject_id', 'student_id')->where('subject_id', Session::get('run_subject'))->where('teacher_id', auth()->user()->id)->get();
+        if (Session::get('run_as') == 1)
+            $learning   = Learning::select('id', 'teacher_id', 'subject_id', 'student_id')->where('subject_id', Session::get('run_subject'))->get();
+        else
+            $learning   = Learning::select('id', 'teacher_id', 'subject_id', 'student_id')->where('subject_id', Session::get('run_subject'))->where('teacher_id', auth()->user()->id)->get();
+
         $learnings  = $learning->pluck('id');
         $in         = $learning->pluck('student_id');
         $stundents  = StudentRombel::select('users.id', 'users.name')->join('users', 'users.id', '=', 'student_rombels.student_id')->where('rombel_id', $rombel)->whereIn('users.id', $in)->orderby('users.name')->get();
@@ -86,6 +90,12 @@ class ScoreController extends Controller
             }
         }
         // return $scores;
+
+        if (Session::get('run_as') == 1)
+            return view('auth.rapor.nilai_admin', [
+                'scores' => $scores,
+                'rombel' => $rombel
+            ]);
 
         return view('auth.rapor.nilai', [
             'scores' => $scores,

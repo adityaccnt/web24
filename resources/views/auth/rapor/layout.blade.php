@@ -33,21 +33,47 @@
 @endif
 <div class="drawer-menu-divider mt-3"></div>
 <div class="drawer-menu-heading py-2"></div>
-<a class="nav-link {{ Request::is('kelola-nilai*') ? ' active' : 'collapsed' }}" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseLayouts">
+<a class="nav-link {{ Request::is('kelola-nilai*') ? ' active' : 'collapsed' }}" href="javascript:void(0);"
+    data-bs-toggle="collapse" data-bs-target="#collapseLayouts">
     <div class="nav-link-icon"><i class="material-icons">school</i></div>
+    @if (Session::get('run_subject') == 10)
+    Absen
+    @else
     Nilai
+    @endif
     <div class="drawer-collapse-arrow"><i class="material-icons">expand_more</i></div>
 </a>
-<div class="collapse {{ Request::is('kelola-nilai*') ? ' show' : '' }}" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#drawerAccordion">
+<div class="collapse {{ Request::is('kelola-nilai*') ? ' show' : '' }}" id="collapseLayouts"
+    aria-labelledby="headingOne" data-bs-parent="#drawerAccordion">
     <nav class="drawer-menu-nested nav">
-        @php
-        $user               = auth()->user()->id;
-        $learning           = DB::table('learnings')->select('student_id')->where('teacher_id',$user)->where('subject_id',Session::get('run_subject'))->pluck('student_id');
-        $student_rombels    = DB::table('student_rombels')->select('rombel_id')->distinct()->whereIn('student_id',$learning)->pluck('rombel_id');
-        $diampus            = DB::table('rombels')->whereIn('id',$student_rombels)->orderby('name')->get()
-        @endphp
+        @if (Session::get('run_as') == 1)
+            @php
+                $diampus = DB::table('rombels')
+                    ->orderby('name')
+                    ->get();
+            @endphp
+        @else
+            @php
+                $user = auth()->user()->id;
+                $learning = DB::table('learnings')
+                    ->select('student_id')
+                    ->where('teacher_id', $user)
+                    ->where('subject_id', Session::get('run_subject'))
+                    ->pluck('student_id');
+                $student_rombels = DB::table('student_rombels')
+                    ->select('rombel_id')
+                    ->distinct()
+                    ->whereIn('student_id', $learning)
+                    ->pluck('rombel_id');
+                $diampus = DB::table('rombels')
+                    ->whereIn('id', $student_rombels)
+                    ->orderby('name')
+                    ->get();
+            @endphp
+        @endif
         @foreach ($diampus as $diampu)
-        <a class="nav-link {{ Request::is('kelola-nilai/'.$diampu->id) ? ' active' : '' }}" href="{{ url('kelola-nilai/'.$diampu->id) }}">{{ $diampu->name }}</a>
+            <a class="nav-link {{ Request::is('kelola-nilai/' . $diampu->id) ? ' active' : '' }}"
+                href="{{ url('kelola-nilai/' . $diampu->id) }}">{{ $diampu->name }}</a>
         @endforeach
     </nav>
 </div>
