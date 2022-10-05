@@ -19,8 +19,10 @@
         </div>
     </div>
     <div class="row text-center justify-content-center py-10">
-        <p class="text-muted">Selamat Datang<hr style="width: 50px; border: 2px solid black" /></p>
         <div class="h1 text-muted">{{ auth()->user()->name }}</div>
+        <hr class="my-3" style="width: 50px; border: 2px solid black" />
+        <p class="text-muted">{{ DB::table('subjects')->find(Session::get('run_subject'))->name }}
+        </p>
     </div>
 
     <script>
