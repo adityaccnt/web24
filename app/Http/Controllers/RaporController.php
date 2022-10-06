@@ -23,7 +23,7 @@ class RaporController extends Controller
 
     public function unduh_rapor(Rombel $rombel, User $user)
     {
-        $subjects   = Learning::select('learnings.id', 'subject_id', 'subjects.name')->where('student_id', $user->id)->join('subjects', 'subjects.id', '=', 'learnings.subject_id')->distinct()->orderby('subjects.maping')->get();
+        $subjects   = Learning::select('subjects.maping','learnings.id', 'subject_id', 'subjects.name')->where('student_id', $user->id)->join('subjects', 'subjects.id', '=', 'learnings.subject_id')->distinct()->orderby('subjects.maping')->get();
         $score_arr     = [];
         foreach ($subjects as $subject) {
             $learnings = Learning::where('student_id', $user->id)->where('subject_id', $subject->subject_id)->get();
@@ -76,7 +76,7 @@ class RaporController extends Controller
 
     public function preview_rapor(Rombel $rombel, User $user)
     {
-        $subjects   = Learning::select('learnings.id', 'subject_id', 'subjects.name')->where('student_id', $user->id)->join('subjects', 'subjects.id', '=', 'learnings.subject_id')->distinct()->orderby('subjects.maping')->get();
+        $subjects   = Learning::select('subjects.maping','learnings.id', 'subject_id', 'subjects.name')->where('student_id', $user->id)->join('subjects', 'subjects.id', '=', 'learnings.subject_id')->distinct()->orderby('subjects.maping')->get();
         $score_arr     = [];
         foreach ($subjects as $subject) {
             $learnings = Learning::where('student_id', $user->id)->where('subject_id', $subject->subject_id)->get();
