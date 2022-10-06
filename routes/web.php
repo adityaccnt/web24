@@ -7,6 +7,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\OsisController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\GuestController;
+use App\Http\Controllers\RaporController;
 use App\Http\Controllers\ScoreController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\RombelController;
@@ -81,6 +82,9 @@ Route::middleware('auth')->group(function () {
     // if (session::has('app')) {
     Route::get('/kelola-nilai/excel/{rombel}', [LearningController::class, 'export_excel']);
     Route::post('/kelola-nilai/excel/import', [LearningController::class, 'import']);
+    Route::get('/kelola-rapor/{rombel}', [RaporController::class, 'rapor']);
+    Route::get('/kelola-rapor/{rombel}/{user}', [RaporController::class, 'preview_rapor']);
+    Route::post('/kelola-rapor/{rombel}/{user}', [RaporController::class, 'unduh_rapor']);
 
     Route::resource('/kelola-pembelajaran', LearningController::class);
     Route::resource('/kelola-rombel', RombelController::class);

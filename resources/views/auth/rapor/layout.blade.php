@@ -37,14 +37,13 @@
     data-bs-toggle="collapse" data-bs-target="#collapseLayouts">
     <div class="nav-link-icon"><i class="material-icons">school</i></div>
     @if (Session::get('run_subject') == 10)
-    Absen
+        Absen
     @else
-    Nilai
+        Nilai
     @endif
     <div class="drawer-collapse-arrow"><i class="material-icons">expand_more</i></div>
 </a>
-<div class="collapse {{ Request::is('kelola-nilai*') ? ' show' : '' }}" id="collapseLayouts"
-    aria-labelledby="headingOne" data-bs-parent="#drawerAccordion">
+<div class="collapse {{ Request::is('kelola-nilai*') ? ' show' : '' }}" id="collapseLayouts">
     <nav class="drawer-menu-nested nav">
         @if (Session::get('run_as') == 1)
             @php
@@ -77,6 +76,30 @@
         @endforeach
     </nav>
 </div>
+
+@if (Session::get('run_as') == 1)
+    <a class="nav-link {{ Request::is('kelola-rapor*') ? ' active' : 'collapsed' }}" href="javascript:void(0);"
+        data-bs-toggle="collapse" data-bs-target="#collapseLayouts2">
+        <div class="nav-link-icon"><i class="material-icons">school</i></div>
+        Rapor
+        <div class="drawer-collapse-arrow"><i class="material-icons">expand_more</i></div>
+    </a>
+    <div class="collapse {{ Request::is('kelola-rapor*') ? ' show' : '' }}" id="collapseLayouts2">
+        <nav class="drawer-menu-nested nav">
+            @php
+                $diampus = DB::table('rombels')
+                    ->orderby('name')
+                    ->get();
+            @endphp
+
+            @foreach ($diampus as $diampu)
+                <a class="nav-link {{ Request::is('kelola-rapor/' . $diampu->id . '*') ? ' active' : '' }}"
+                    href="{{ url('kelola-rapor/' . $diampu->id) }}">{{ $diampu->name }}</a>
+            @endforeach
+        </nav>
+    </div>
+@endif
+
 
 {{-- <a class="nav-link{{ Request::is('kelola-kehadiran*') ? ' active' : '' }}" href="{{ url('/kelola-kehadiran') }}">
     <div class="nav-link-icon"><i class="material-icons">school</i></div>
