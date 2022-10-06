@@ -37,6 +37,7 @@ class GuestController extends Controller
             'albums'   => $albums,
             'tendik'   => User::where('role', 'K')->count(),
             'pendidik' => User::where('role', 'G')->count(),
+            'peserta_didik' => User::where('role', 'S')->count(),
         ]);
     }
 

@@ -107,7 +107,7 @@
             <hr class="mb-60">
             <div class="row gy-40">
                 <div class="col-12 col-sm-6 col-lg-3" data-show="startbox">
-                    <div class="h1 m-0 text-accent-1">356</div>
+                    <div class="h1 m-0 text-accent-1">{{ $peserta_didik }}</div>
                     <div class="h6 mb-15">Peserta Didik</div>
                     <p class="font-size-15 m-0 pe-20">Menuntut ilmu, para generasi penerus bangsa.</p>
                 </div>
