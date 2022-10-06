@@ -64,6 +64,14 @@
                 @php
                     $no = 1;
                     $absen = [];
+                    
+                    $ipa[5] = [];
+                    $ipa[6] = [];
+                    $ipa[10] = [];
+                    
+                    $ips[5] = [];
+                    $ips[6] = [];
+                    $ips[10] = [];
                 @endphp
                 @foreach ($subjects as $key => $subject)
                     @if (isset($scores[$subject->subject_id]) && isset($scores[$subject->subject_id][11]))
@@ -86,6 +94,47 @@
                     @endif
 
                     @if ($subject->subject_id == 10)
+                        @continue
+                    @endif
+
+                    @if ($subject->subject_id == 8 || $subject->subject_id == 12 || $subject->subject_id == 16)
+                        @if (isset($scores[$subject->subject_id]) && isset($scores[$subject->subject_id][5]))
+                            @php
+                                $ipa[5][] = $scores[$subject->subject_id][5] == 1 ? '0' : $scores[$subject->subject_id][5];
+                            @endphp
+                        @endif
+                        @if (isset($scores[$subject->subject_id]) && isset($scores[$subject->subject_id][6]))
+                            @php
+                                $ipa[6][] = +$scores[$subject->subject_id][6] == 1 ? '0' : $scores[$subject->subject_id][6];
+                            @endphp
+                        @endif
+                        @if (isset($scores[$subject->subject_id]) && isset($scores[$subject->subject_id][10]))
+                            @php
+                                $ipa[10][] = +$scores[$subject->subject_id][10] == 1 ? '0' : $scores[$subject->subject_id][10];
+                            @endphp
+                        @endif
+                        @continue
+                    @endif
+
+                    @if ($subject->subject_id == 11 ||
+                        $subject->subject_id == 13 ||
+                        $subject->subject_id == 26 ||
+                        $subject->subject_id == 25)
+                        @if (isset($scores[$subject->subject_id]) && isset($scores[$subject->subject_id][5]))
+                            @php
+                                $ips[5][] = $scores[$subject->subject_id][5] == 1 ? '0' : $scores[$subject->subject_id][5];
+                            @endphp
+                        @endif
+                        @if (isset($scores[$subject->subject_id]) && isset($scores[$subject->subject_id][6]))
+                            @php
+                                $ips[6][] = +$scores[$subject->subject_id][6] == 1 ? '0' : $scores[$subject->subject_id][6];
+                            @endphp
+                        @endif
+                        @if (isset($scores[$subject->subject_id]) && isset($scores[$subject->subject_id][10]))
+                            @php
+                                $ips[10][] = $scores[$subject->subject_id][10] == 1 ? '0' : $scores[$subject->subject_id][10];
+                            @endphp
+                        @endif
                         @continue
                     @endif
                     <tr>
@@ -113,6 +162,24 @@
                         </td>
                     </tr>
                 @endforeach
+
+                <tr>
+                    <td class="text-start p-2">{{ $no++ }}</td>
+                    <td class="text-start p-2">Ilmu Pengetahuan Alam</td>
+                    <td class="text-center p-2" colspan="2">{{ round(array_sum($ipa[5]) / count($ipa[5])) }}</td>
+                    <td class="text-center p-2" colspan="2">{{ round(array_sum($ipa[6]) / count($ipa[6])) }}</td>
+                    <td class="text-center p-2" colspan="2">{{ round(array_sum($ipa[10]) / count($ipa[10])) }}</td>
+                    <td class="text-center p-2" colspan="2">B</td>
+                </tr>
+                <tr>
+                    <td class="text-start p-2">{{ $no++ }}</td>
+                    <td class="text-start p-2">Ilmu Pengetahuan Sosial</td>
+                    <td class="text-center p-2" colspan="2">{{ round(array_sum($ips[5]) / count($ips[5])) }}</td>
+                    <td class="text-center p-2" colspan="2">{{ round(array_sum($ips[6]) / count($ips[6])) }}</td>
+                    <td class="text-center p-2" colspan="2">{{ round(array_sum($ips[10]) / count($ips[10])) }}</td>
+                    <td class="text-center p-2" colspan="2">B</td>
+                </tr>
+
 
                 <tr style="border: none">
                     <td colspan="10" height="10" style="border: none"></td>
