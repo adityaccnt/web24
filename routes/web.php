@@ -48,6 +48,9 @@ Route::get('/galeri/{album:slug}', [GuestController::class, 'galeri_show']);
 Route::get('/galeri/kategori/{organization:slug}', [GuestController::class, 'galeri_category']);
 Route::get('/kontak', [GuestController::class, 'kontak']);
 Route::get('/aplikasi', [GuestController::class, 'aplikasi']);
+Route::get('/erapor', function () {
+    return redirect('http://0.tcp.ap.ngrok.io:10320/login');
+});
 
 Route::middleware('guest')->group(function () {
     Route::get('/masuk', [AuthController::class, 'masuk'])->name('login');
