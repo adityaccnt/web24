@@ -92,9 +92,6 @@ Route::middleware('auth')->group(function () {
     Route::resource('/kelola-pembelajaran', LearningController::class);
     Route::resource('/kelola-rombel', RombelController::class);
     Route::resource('/kelola-mapel', SubjectController::class);
-    Route::get('/kelola-nilai', function () {
-        return abort(404);
-    });
     Route::get('/g/{id}', function ($id) {
         $user   = auth()->user()->id;
         $get    = Learning::where('subject_id', $id)->where('teacher_id', $user)->get();
