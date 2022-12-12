@@ -83,8 +83,8 @@ Route::middleware('auth')->group(function () {
     // }
 
     // if (session::has('app')) {
-    Route::get('/kelola-nilai-excel/{rombel}', [LearningController::class, 'export_excel']);
-    Route::post('/kelola-nilai-excel/import', [LearningController::class, 'import']);
+    Route::get('/kelola-nilai/excel/{rombel}', [LearningController::class, 'export_excel']);
+    Route::post('/kelola-nilai/excel/import', [LearningController::class, 'import']);
     Route::get('/kelola-rapor/{rombel}', [RaporController::class, 'rapor']);
     Route::get('/kelola-rapor/{rombel}/{user}', [RaporController::class, 'preview_rapor']);
     Route::post('/kelola-rapor/{rombel}/{user}', [RaporController::class, 'unduh_rapor']);
@@ -101,7 +101,7 @@ Route::middleware('auth')->group(function () {
             ]);
         return redirect('/dasbor');
     });
-    Route::resource('/kelola-nilai/{rombel}', ScoreController::class);
+    // Route::resource('/kelola-nilai/{rombel}', ScoreController::class);
     // }
 
 });
