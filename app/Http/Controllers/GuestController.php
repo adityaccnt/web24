@@ -31,7 +31,7 @@ class GuestController extends Controller
         $albums = Album::with(['thumbnail'])->latest('published_at')->where('status_id', 1)->limit(5)->get();
 
         return view('guest.beranda', [
-            'token'    => env("INSTAGRAM_TOKEN", null),
+            'token'    => env("INSTAGRAM_TOKEN", 'IGQVJXbXhhYk5iSkhPRmZANaUtiVHZAEckxfaFJ0YVp6dzlfZAl9vcklVWTdDenhPQ1BNQUFPUEp3TW5OTExjMGVJMnZAjX1M3WDhUY0M2TjBHVlZAOWlllSXp4WjByNlJTdHo2Q193dm9RNjU0MmhJWEFYTQZDZD'),
             'post'     => $post,
             'posts'    => $posts,
             'albums'   => $albums,
