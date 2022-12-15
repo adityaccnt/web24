@@ -49,7 +49,7 @@ Route::get('/galeri/kategori/{organization:slug}', [GuestController::class, 'gal
 Route::get('/kontak', [GuestController::class, 'kontak']);
 Route::get('/aplikasi', [GuestController::class, 'aplikasi']);
 Route::get('/erapor', function () {
-    return redirect('http://0.tcp.ap.ngrok.io:10320/login');
+    return redirect('http://0.tcp.ap.ngrok.io:18403/login');
 });
 
 Route::middleware('guest')->group(function () {
