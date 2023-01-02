@@ -101,7 +101,7 @@
                             <div class="col-12 d-flex justify-content-center">
                                 <div class="row">
                                     <div id="recaptcha" class="g-recaptcha"
-                                        data-sitekey="6LeplMMjAAAAADIBBkCc-XwnB4J0JTU0SVyKvBGk" required>
+                                        data-sitekey="6LejqcQjAAAAAGaLoJI0fcUqu69KNMzO0cXzA5Oh" required>
                                     </div>
                                 </div>
                                 @error('g-recaptcha-response')
