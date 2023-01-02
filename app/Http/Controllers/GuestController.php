@@ -240,11 +240,11 @@ class GuestController extends Controller
             'nama_wali' => 'required|string|min:2|max:50',
             'wa_wali' => 'required|digits_between:7,13|starts_with:08|unique:mutasis,wa_wali',
             'rombel' => 'required',
-            'lampiran' => 'required|mimes:pdf|file|max:5120',
+            'lampiran' => 'required|mimes:pdf|file|max:10240',
             'g-recaptcha-response' => 'required'
         ]);
 
-        $validatedData['lampiran'] = $request->file('lampiran')->store('public\mutasi');
+        $validatedData['lampiran'] = $request->file('lampiran')->store('public/mutasi');
         Mutasi::create($validatedData);
 
         return redirect('/mutasi')->with('success', 'Pendaftaran berhasil, silahkan menunggu proses verifikasi dan dihubungi oleh panitia.');

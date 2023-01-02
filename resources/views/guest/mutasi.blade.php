@@ -104,7 +104,7 @@
                                                 </svg>
                                             </div>
                                             <div class="col ps-0">
-                                                Lampiran PDF berisi scan Rapor, Ijazah, Akte, dan Kartu Keluarga (Maks. 5 MB)
+                                                Lampiran PDF berisi scan Rapor, Ijazah, Akte, dan Kartu Keluarga (Maks. 1 MB)
                                             </div>
                                         </div>
                                     </label>
