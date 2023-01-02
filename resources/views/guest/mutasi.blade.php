@@ -50,26 +50,41 @@
                             </div>
                         </div>
                     </div><!-- Form-->
-                    <form class="mt-75" data-show="startbox">
+                    <form class="mt-75" data-show="startbox" method="POST" enctype="multipart/form-data">
+                        @csrf
+
+                        @if ($errors->any())
+                            <div class="alert py-10 px-20 mb-40 alert-danger alert-dismissible">
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                {!! implode('', $errors->all('<div>:message</div>')) !!}
+                            </div>
+                        @endif
+                        @if (session()->has('success'))
+                            <div class="alert py-10 px-20 mb-40 alert-success alert-dismissible">
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                {{ session('success') }}
+                            </div>
+                        @endif
+
                         <div class="row gy-40">
                             <div class="col-12 col-md-6">
-                                <input class="form-control form-control-gray" type="text"
+                                <input class="form-control form-control-gray" minlength="2" type="text" name="nama_peserta"
                                     placeholder="Nama Peserta Didik *" required>
                             </div>
                             <div class="col-12 col-md-6">
-                                <input class="form-control form-control-gray" type="text"
-                                    placeholder="Whatsapp Peserta Didik *" required>
+                                <input class="form-control form-control-gray" minlength="7" maxlength="13" type="tel" name="wa_peserta"
+                                    placeholder="Whatsapp Peserta Didik *" pattern="[0-9]{7,13}" required>
                             </div>
                             <div class="col-12 col-md-6">
-                                <input class="form-control form-control-gray" type="text"
+                                <input class="form-control form-control-gray" minlength="2" type="text" name="nama_wali"
                                     placeholder="Nama Orangtua / Wali *" required>
                             </div>
                             <div class="col-12 col-md-6">
-                                <input class="form-control form-control-gray" type="text"
-                                    placeholder="Whatsapp Orangtua / Wali *" required>
+                                <input class="form-control form-control-gray" minlength="7" maxlength="13" type="tel" name="wa_wali"
+                                    placeholder="Whatsapp Orangtua / Wali *" pattern="[0-9]{7,13}" required>
                             </div>
                             <div class="col-12 col-md-6">
-                                <select class="form-control text-white bg-dark">
+                                <select class="form-control text-white bg-dark" name="rombel">
                                     <option selected="">Pilih Rombel *</option>
                                     <option>X (tersedia 7)</option>
                                     <option>XII MIPA (tersedia 1)</option>
@@ -78,7 +93,7 @@
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="form-attach-file text-white">
-                                    <label class="form-attach-label" for="formFile">
+                                    <label class="form-attach-label" for="lampiran">
                                         <div class="row">
                                             <div class="col-auto pe-0">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="26"
@@ -89,13 +104,13 @@
                                                 </svg>
                                             </div>
                                             <div class="col ps-0">
-                                                Lampiran PDF berisi scan Rapor, Ijazah, Akte, dan Kartu Keluarga
+                                                Lampiran PDF berisi scan Rapor, Ijazah, Akte, dan Kartu Keluarga (Maks. 5 MB)
                                             </div>
                                         </div>
                                     </label>
 
-                                    <input class="form-control" type="file" id="formFile" accept="application/pdf"
-                                        hidden required>
+                                    <input class="form-control" type="file" id="lampiran" accept="application/pdf"
+                                        name="lampiran" hidden required>
                                 </div>
                             </div>
                             <div class="col-12 d-flex justify-content-center">
@@ -124,6 +139,12 @@
                 if (recaptcha) recaptcha.setAttribute("required", "required");
                 recaptcha.oninvalid = function(e) {
                     alert("Silahkan lengkapi captcha");
+                };
+
+                var lampiran = document.querySelector('#lampiran');
+                if (lampiran) lampiran.setAttribute("required", "required");
+                lampiran.oninvalid = function(e) {
+                    alert("Silahkan lengkapi lampiran");
                 };
             };
         });

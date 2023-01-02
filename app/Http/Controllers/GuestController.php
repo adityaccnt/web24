@@ -10,11 +10,13 @@ use App\Models\Server;
 use App\Models\Gallery;
 use App\Models\Facility;
 use App\Models\Achievement;
+use App\Models\Mutasi;
 use App\Models\Organization;
 use Illuminate\Http\Request;
 use App\Models\PostAttachment;
 use App\Models\OrganizationMember;
 use App\Models\OrganizationGallery;
+use GuzzleHttp\Promise\Create;
 
 class GuestController extends Controller
 {
@@ -231,6 +233,20 @@ class GuestController extends Controller
 
     public function store_mutasi(Request $request)
     {
-        dd($request);
+
+        $validatedData = $request->validate([
+            'nama_peserta' => 'required|string|min:2|max:50',
+            'wa_peserta' => 'required|digits_between:7,13|starts_with:08|unique:mutasis,wa_peserta',
+            'nama_wali' => 'required|string|min:2|max:50',
+            'wa_wali' => 'required|digits_between:7,13|starts_with:08|unique:mutasis,wa_wali',
+            'rombel' => 'required',
+            'lampiran' => 'required|mimes:pdf|file|max:5120',
+            'g-recaptcha-response' => 'required'
+        ]);
+
+        $validatedData['lampiran'] = $request->file('lampiran')->store('public\mutasi');
+        Mutasi::create($validatedData);
+
+        return redirect('/mutasi')->with('success', 'Pendaftaran berhasil, silahkan menunggu proses verifikasi dan dihubungi oleh panitia.');
     }
 }
