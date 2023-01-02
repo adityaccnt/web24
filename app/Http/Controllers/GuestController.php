@@ -223,4 +223,14 @@ class GuestController extends Controller
             'servers' => $servers->load(['status'])
         ]);
     }
+
+    public function mutasi()
+    {
+        return view('guest.mutasi');
+    }
+
+    public function store_mutasi(Request $request)
+    {
+        dd($request);
+    }
 }

@@ -48,6 +48,7 @@ Route::get('/galeri/{album:slug}', [GuestController::class, 'galeri_show']);
 Route::get('/galeri/kategori/{organization:slug}', [GuestController::class, 'galeri_category']);
 Route::get('/kontak', [GuestController::class, 'kontak']);
 Route::get('/aplikasi', [GuestController::class, 'aplikasi']);
+Route::get('/mutasi', [GuestController::class, 'mutasi']);
 Route::get('/erapor', function () {
     return redirect('http://0.tcp.ap.ngrok.io:18403/login');
 });

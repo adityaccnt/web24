@@ -32,6 +32,7 @@
         gtag('js', new Date());
         gtag('config', 'G-YJQHTC68B1');
     </script>
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LeplMMjAAAAADIBBkCc-XwnB4J0JTU0SVyKvBGk"></script>
 </head>
 
 <body class="{{ (!isset($exception))? 'has-topbar':''; }}">
