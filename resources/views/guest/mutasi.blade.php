@@ -86,9 +86,9 @@
                             <div class="col-12 col-md-6">
                                 <select class="form-control text-white bg-dark" name="rombel">
                                     <option selected="">Pilih Rombel *</option>
-                                    <option>X (tersedia 7)</option>
-                                    <option>XII MIPA (tersedia 1)</option>
-                                    <option>XII IPS (tersedia 1)</option>
+                                    <option value="10">X (tersedia 3)</option>
+                                    <option value="11 MIPA">XI MIPA (tersedia 1)</option>
+                                    <option value="11 IPS">XI IPS (tersedia 4)</option>
                                 </select>
                             </div>
                             <div class="col-12 col-md-6">
