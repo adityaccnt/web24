@@ -15,5 +15,6 @@ class Mutasi extends Model
         'nama_wali',
         'wa_wali',
         'lampiran',
+        'rombel',
     ];
 }
