@@ -8,7 +8,7 @@ use App\Http\Controllers\OsisController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\RaporController;
-use App\Http\Controllers\ScoreController;
+use App\Http\Controllers\MutasiController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\RombelController;
 use App\Http\Controllers\ServerController;
@@ -76,6 +76,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/kelola-prestasi', AchievementController::class);
     Route::resource('/kelola-server', ServerController::class);
     Route::resource('/kelola-galeri', GalleryController::class);
+    Route::get('/kelola-mutasi', [MutasiController::class, 'index']);
     Route::get('/pratinjau-berita/{post:slug}', [GuestController::class, 'berita_preview']);
     Route::get('/kelola-server/{server:name}/refresh', [ServerController::class, 'refresh']);
     Route::get('/kelola-server/{server:name}/switch/{status}', [ServerController::class, 'status']);

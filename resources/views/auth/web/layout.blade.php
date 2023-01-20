@@ -43,4 +43,8 @@
         <div class="nav-link-icon"><i class="material-icons">dns</i></div>
         Server
     </a>
+    <a class="nav-link{{ Request::is('kelola-mutasi*') ? ' active' : '' }}" href="{{ url('/kelola-mutasi') }}">
+        <div class="nav-link-icon"><i class="material-icons">dns</i></div>
+        Mutasi
+    </a>
 @endif
