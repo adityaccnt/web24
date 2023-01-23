@@ -104,7 +104,7 @@ Route::middleware('auth')->group(function () {
             ]);
         return redirect('/dasbor');
     });
-    Route::resource('/kelola-nilai/{rombel}', ScoreController::class)->where('rombel','<>','excel');
+    Route::resource('/kelola-nilai/{rombel}', ScoreController::class)->where('rombel','!excel');
     // }
 
 });
