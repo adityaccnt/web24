@@ -2,6 +2,8 @@
 
 return [
 
+    'instagram_token' => env("INSTAGRAM_TOKEN", null),
+
     /*
     |--------------------------------------------------------------------------
     | Application Name
