@@ -53,7 +53,7 @@ class Organization extends Model
 
     public function album_active()
     {
-        return $this->album()->where('status_id', 1);
+        return $this->album()->where('status_id', 1)->orderBy('published_at','desc');
     }
 
     public function thumbnail()

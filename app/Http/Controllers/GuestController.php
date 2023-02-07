@@ -179,7 +179,7 @@ class GuestController extends Controller
     {
         return view('guest.galeri', [
             'cover'      => Gallery::latest()->first(),
-            'albums'     => Album::with(['thumbnail', 'organization'])->where('menu', 'galeri')->where('status_id', 1)->get(),
+            'albums'     => Album::with(['thumbnail', 'organization'])->where('menu', 'galeri')->where('status_id', 1)->orderBy('published_at','desc')->get(),
             'categories' => Organization::where('status', 'manajemen')->get(),
         ]);
     }
