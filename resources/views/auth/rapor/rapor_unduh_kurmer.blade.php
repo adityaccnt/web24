@@ -37,7 +37,7 @@
                         {{ $student->name }}
                     </td>
                     <td style="padding: 0; border:none; width: 8%" class="small">Semester </td>
-                    <td style="padding: 0; border:none; width: 12%" class="small font-weight-bold">: Ganjil </td>
+                    <td style="padding: 0; border:none; width: 12%" class="small font-weight-bold">: Genap </td>
                 </tr>
                 <tr class="border-0">
                     <td style="padding: 0; border:none;" class="small">NIS </td>
@@ -232,8 +232,8 @@
                         <table class="table table-bordered text-center">
                             <tbody>
                                 <tr class="border-0 border-primary">
-                                    <td class="p-2 pb-10 text-start border-0 border-bottom">Jakarta Pusat, 7 Oktober
-                                        2022<br />Wali Kelas
+                                    <td class="p-2 pb-10 text-start border-0 border-bottom">Jakarta Pusat, 31 Maret
+                                        2023<br />Wali Kelas
                                         <br />
                                         <br />
                                         <br />
