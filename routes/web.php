@@ -8,8 +8,9 @@ use App\Http\Controllers\OsisController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\RaporController;
-use App\Http\Controllers\MutasiController;
+use App\Http\Controllers\ScoreController;
 use App\Http\Controllers\StaffController;
+use App\Http\Controllers\MutasiController;
 use App\Http\Controllers\RombelController;
 use App\Http\Controllers\ServerController;
 use App\Http\Controllers\GalleryController;
@@ -104,7 +105,7 @@ Route::middleware('auth')->group(function () {
             ]);
         return redirect('/dasbor');
     });
-    // Route::resource('/kelola-nilai/{rombel}', ScoreController::class)->route('nilai');
+    Route::resource('/kelola-nilai/{rombel}', ScoreController::class);
     // }
 
 });
