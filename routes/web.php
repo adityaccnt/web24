@@ -105,7 +105,9 @@ Route::middleware('auth')->group(function () {
             ]);
         return redirect('/dasbor');
     });
-    Route::resource('/kelola-nilai/{rombel}', ScoreController::class);
+    // Route::get('/kelola-nilai/{rombel}', [ScoreController::class, 'index']);
+    // Route::post('/kelola-nilai/{rombel}', [ScoreController::class, 'store']);
+    Route::resource('/kelola-nilai/{rombel}', ScoreController::class)->only('index','store');
     // }
 
 });
