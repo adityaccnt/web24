@@ -171,8 +171,7 @@
                             <table class="table table-bordered text-center">
                                 <tbody>
                                     <tr class="border-0 border-primary">
-                                        <td class="p-2 pb-10 text-start border-0 border-bottom">Jakarta Pusat, 7 Oktober
-                                            2022<br />Wali Kelas</td>
+                                        <td class="p-2 pb-10 text-start border-0 border-bottom">Jakarta Pusat, 31 Maret 2023<br />Wali Kelas</td>
                                     </tr>
                                 </tbody>
                             </table>
