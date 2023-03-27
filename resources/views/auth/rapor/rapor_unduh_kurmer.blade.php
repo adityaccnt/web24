@@ -166,17 +166,17 @@
                 <tr>
                     <td class="text-start p-2">{{ $no++ }}</td>
                     <td class="text-start p-2">Ilmu Pengetahuan Alam</td>
-                    <td class="text-center p-2" colspan="2">{{ round(array_sum($ipa[5]) / count($ipa[5])) }}</td>
-                    <td class="text-center p-2" colspan="2">{{ round(array_sum($ipa[6]) / count($ipa[6])) }}</td>
-                    <td class="text-center p-2" colspan="2">{{ round(array_sum($ipa[10]) / count($ipa[10])) }}</td>
+                    <td class="text-center p-2" colspan="2">@if (count($ipa[5]) > 0) round(array_sum($ipa[5]) / count($ipa[5])) @endif</td>
+                    <td class="text-center p-2" colspan="2">@if (count($ipa[6]) > 0) round(array_sum($ipa[6]) / count($ipa[6])) @endif</td>
+                    <td class="text-center p-2" colspan="2">@if (count($ipa[10]) > 0) round(array_sum($ipa[10]) / count($ipa[10])) @endif</td>
                     <td class="text-center p-2" colspan="2">B</td>
                 </tr>
                 <tr>
                     <td class="text-start p-2">{{ $no++ }}</td>
                     <td class="text-start p-2">Ilmu Pengetahuan Sosial</td>
-                    <td class="text-center p-2" colspan="2">{{ round(array_sum($ips[5]) / count($ips[5])) }}</td>
-                    <td class="text-center p-2" colspan="2">{{ round(array_sum($ips[6]) / count($ips[6])) }}</td>
-                    <td class="text-center p-2" colspan="2">{{ round(array_sum($ips[10]) / count($ips[10])) }}</td>
+                    <td class="text-center p-2" colspan="2">@if (count($ips[5]) > 0) round(array_sum($ips[5]) / count($ips[5])) @endif</td>
+                    <td class="text-center p-2" colspan="2">@if (count($ips[6]) > 0) round(array_sum($ips[6]) / count($ips[6])) @endif</td>
+                    <td class="text-center p-2" colspan="2">@if (count($ips[10]) > 0) round(array_sum($ips[10]) / count($ips[10])) @endif</td>
                     <td class="text-center p-2" colspan="2">B</td>
                 </tr>
 
