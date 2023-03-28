@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Score;
 use App\Models\Rombel;
 use App\Models\Subject;
 use App\Models\Learning;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use App\Exports\LearningExport;
 use App\Imports\ScoresImport;
+use App\Exports\LearningExport;
+use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Session;
 
@@ -30,6 +33,38 @@ class LearningController extends Controller
             'users'     => $users,
             'teachers'  => $teachers,
             'subjects'  => $subjects,
+            'rombels'   => $rombels,
+            'learnings' => $learnings,
+        ]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function learning(Rombel $rombel)
+    {
+        $learnings = DB::select(
+            "SELECT 
+                users.name as guru,
+                subjects.name,
+                -- learnings.student_id,
+                -- student_rombels.rombel_id,
+                subjects.maping,
+                count(scores.id) as done 
+            FROM learnings
+                JOIN student_rombels ON student_rombels.student_id=learnings.student_id 
+                JOIN subjects ON subjects.id=learnings.subject_id 
+                JOIN scores ON scores.learning_id=learnings.id 
+                JOIN users ON users.id=learnings.teacher_id 
+            WHERE student_rombels.rombel_id=$rombel->id
+                GROUP BY learnings.teacher_id, maping, subjects.name, users.name
+            ORDER BY maping"
+            );
+
+        $rombels    = Rombel::orderby('name')->get();
+        return view('auth.rapor.pembelajaran', [
             'rombels'   => $rombels,
             'learnings' => $learnings,
         ]);

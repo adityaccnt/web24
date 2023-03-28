@@ -20,6 +20,11 @@
         <div class="nav-link-icon"><i class="material-icons">school</i></div>
         Pembelajaran
     </a>
+    <a class="nav-link{{ Request::is('status-penilaian*') ? ' active' : '' }}"
+        href="{{ url('status-penilaian/1') }}">
+        <div class="nav-link-icon"><i class="material-icons">school</i></div>
+        Status Penilaian
+    </a>
     {{-- <div class="drawer-menu-divider mt-3"></div>
     <div class="drawer-menu-heading py-2"></div>
     <a class="nav-link{{ Request::is('kelola-legger*') ? ' active' : '' }}" href="{{ url('/kelola-legger') }}">

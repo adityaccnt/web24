@@ -93,6 +93,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/kelola-rapor/{rombel}/{user}', [RaporController::class, 'preview_rapor']);
     Route::post('/kelola-rapor/{rombel}/{user}', [RaporController::class, 'unduh_rapor']);
 
+    Route::get('/status-penilaian/{rombel}', [LearningController::class, 'learning']);
+    Route::redirect('/status-penilaian', '/status-penilaian/1');
     Route::resource('/kelola-pembelajaran', LearningController::class);
     Route::resource('/kelola-rombel', RombelController::class);
     Route::resource('/kelola-mapel', SubjectController::class);
