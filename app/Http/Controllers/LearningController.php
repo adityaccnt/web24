@@ -54,10 +54,10 @@ class LearningController extends Controller
                 subjects.maping,
                 count(scores.id) as done 
             FROM learnings
-                JOIN student_rombels ON student_rombels.student_id=learnings.student_id 
-                JOIN subjects ON subjects.id=learnings.subject_id 
-                JOIN scores ON scores.learning_id=learnings.id 
-                JOIN users ON users.id=learnings.teacher_id 
+                LEFT JOIN student_rombels ON student_rombels.student_id=learnings.student_id 
+                LEFT JOIN subjects ON subjects.id=learnings.subject_id 
+                LEFT JOIN scores ON scores.learning_id=learnings.id 
+                LEFT JOIN users ON users.id=learnings.teacher_id 
             WHERE student_rombels.rombel_id=$rombel->id
                 GROUP BY learnings.teacher_id, maping, subjects.name, users.name
             ORDER BY maping"

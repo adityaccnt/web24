@@ -49,7 +49,7 @@
                             <td class="d-none d-md-table-cell " style="width: 0px" class="px-1 py-2">{{ $no++ }}</td>
                             <td class="d-none d-md-table-cell p-0 py-3">{{ $learning->name }}</td>
                             <td>{{ $learning->guru }}</td>
-                            <td class="{{ ($learning->maping > 0) ? 'bg-success':'bg-danger' }} text-white text-center" style="width: 1px">{{ ($learning->maping > 0) ? 'Y':'N' }}</td>
+                            <td class="{{ ($learning->done > 0) ? 'bg-success':'bg-danger' }} text-white text-center" style="width: 1px">{{ ($learning->done > 0) ? 'Y':'N' }}</td>
                         </tr>
                     @endforeach
                 </tbody>
