@@ -51,6 +51,9 @@ Route::get('/kontak', [GuestController::class, 'kontak']);
 Route::get('/aplikasi', [GuestController::class, 'aplikasi']);
 Route::get('/mutasi', [GuestController::class, 'mutasi']);
 Route::post('/mutasi', [GuestController::class, 'store_mutasi']);
+Route::get('/kelulusan', [GuestController::class, 'kelulusan']);
+Route::get('/kelulusan/demo', [GuestController::class, 'hasil_kelulusan']);
+Route::post('/kelulusan', [GuestController::class, 'hasil_kelulusan']);
 Route::get('/erapor', function () {
     return redirect('http://0.tcp.ap.ngrok.io:18403/login');
 });

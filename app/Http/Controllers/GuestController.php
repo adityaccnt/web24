@@ -10,6 +10,7 @@ use App\Models\Server;
 use App\Models\Gallery;
 use App\Models\Facility;
 use App\Models\Achievement;
+use App\Models\Graduation;
 use App\Models\Mutasi;
 use App\Models\Organization;
 use Illuminate\Http\Request;
@@ -48,7 +49,7 @@ class GuestController extends Controller
         return view('guest.profil', [
             'ekskul'        => Organization::where('status', 'ekskul')->count(),
             'pendidik'      => User::where('role', 'G')->count(),
-            'managements'   => OrganizationMember::with(['member','position','member.avatar'])->where('position_id', '<', 11)->orWhere('position_id', '40')->orderByRaw('FIELD(position_id,1,40,2,3,4,5,6,7,8,9,10,0)')->get(),
+            'managements'   => OrganizationMember::with(['member', 'position', 'member.avatar'])->where('position_id', '<', 11)->orWhere('position_id', '40')->orderByRaw('FIELD(position_id,1,40,2,3,4,5,6,7,8,9,10,0)')->get(),
         ]);
     }
 
@@ -59,7 +60,7 @@ class GuestController extends Controller
 
     public function pendidik()
     {
-        $teachers = User::with(['position','avatar'])->where('role', 'G')->orderBy('name')->get();
+        $teachers = User::with(['position', 'avatar'])->where('role', 'G')->orderBy('name')->get();
         return view('guest.pendidik', [
             'teachers' => $teachers,
         ]);
@@ -67,7 +68,7 @@ class GuestController extends Controller
 
     public function tenaga_kependidikan()
     {
-        $teachers = User::with(['position','avatar'])->where('role', 'K')->orderBy('name')->get();
+        $teachers = User::with(['position', 'avatar'])->where('role', 'K')->orderBy('name')->get();
         return view('guest.tendik', [
             'teachers' => $teachers,
         ]);
@@ -179,7 +180,7 @@ class GuestController extends Controller
     {
         return view('guest.galeri', [
             'cover'      => Gallery::latest()->first(),
-            'albums'     => Album::with(['thumbnail', 'organization'])->where('menu', 'galeri')->where('status_id', 1)->orderBy('published_at','desc')->get(),
+            'albums'     => Album::with(['thumbnail', 'organization'])->where('menu', 'galeri')->where('status_id', 1)->orderBy('published_at', 'desc')->get(),
             'categories' => Organization::where('status', 'manajemen')->get(),
         ]);
     }
@@ -248,5 +249,30 @@ class GuestController extends Controller
         Mutasi::create($validatedData);
 
         return redirect('/mutasi')->with('success', 'Pendaftaran berhasil, silahkan menunggu proses verifikasi dan dihubungi oleh panitia.');
+    }
+
+    public function kelulusan()
+    {
+        return view('guest.kelulusan');
+    }
+
+    public function hasil_kelulusan(Request $request)
+    {
+        $request->merge(['login_at' => date('Y-m-d H:i:s')]);
+
+        $request->validate([
+            'username' => 'required|string|exists:graduations,username',
+            'password' => 'required|string',
+            'g-recaptcha-response' => 'required',
+            'login_at' => 'required|after:2023-05-05 10:00:00'
+        ], [
+            'login_at.after' => 'Belum waktu pengumuman'
+        ]);
+
+        $graduation = Graduation::where('username', $request->username)->where('password', $request->password)->first();
+        if ($graduation)
+            return view('guest.hasil_kelulusan', ['data' => $graduation]);
+        else
+            return redirect('/kelulusan')->withErrors('Username dan password tidak cocok.');
     }
 }
