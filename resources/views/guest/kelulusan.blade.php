@@ -6,7 +6,7 @@
         <!-- Page title-->
         <div class="position-relative py-210">
             <div class="background">
-                <div class="background-image jarallax" data-jarallax data-speed="0.8"><img class="jarallax-img" loading="lazy" src="https://www.sman24jakarta.sch.id/public/galleries/Iy457BOD6GUx9jQVPSXhSX9yan4CaNBCbMC7gT9Y.jpg" alt=""></div>
+                <div class="background-image jarallax" data-jarallax data-speed="0.8"><img class="jarallax-img" loading="lazy" src="{{ url('public/background-graduation.png') }}" alt=""></div>
                 <div class="background-color" style="--background-color: #000; opacity: .75;"></div>
             </div>
             <div class="container">

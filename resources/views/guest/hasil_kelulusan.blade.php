@@ -5,7 +5,7 @@
     <div class="content-wrap ">
         <div class="pt-120 pb-130 bg-gray-light shape-parent">
             <!-- Shape-->
-            <div class="shape align-items-start justify-content-start"><img loading="lazy" src="{{ url('assets/img/root/pricing-shape-623x455.png') }}" alt="" width="623" height="455"></div>
+            <div class="background-image jarallax" data-jarallax data-speed="0.8"><img class="jarallax-img" loading="lazy" src="{{ url('public/background-graduation.png') }}" alt=""></div>
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-md-9 col-lg-6 mt-100 mx-auto" data-show="startbox">
