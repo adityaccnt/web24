@@ -264,12 +264,15 @@ class GuestController extends Controller
             'username' => 'required|string|exists:graduations,username',
             'password' => 'required|string',
             'g-recaptcha-response' => 'required',
-            'login_at' => 'required|after:2023-05-05 10:00:00'
+            'login_at' => 'required|after:2023-05-03 07:00:00|before:2023-05-07 07:00:00'
         ], [
-            'login_at.after' => 'Belum waktu pengumuman'
+            'login_at.after' => 'Belum waktu pengumuman',
+            'login_at.before' => 'Waktu pengumuman berakhir',
         ]);
 
         $graduation = Graduation::where('username', $request->username)->where('password', $request->password)->first();
+        $graduation->update(['login_at' => now()]);
+
         if ($graduation)
             return view('guest.hasil_kelulusan', ['data' => $graduation]);
         else

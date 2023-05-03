@@ -59,11 +59,11 @@
                                 @endif
                                 <div class="mt-35">
                                     <label class="mb-10 fw-bold">Username</label>
-                                    <input type="text" name="username" class="form-control border rounded p-20" placeholder="Masukan username Anda">
+                                    <input type="text" name="username" class="form-control border rounded p-20" placeholder="Masukan username Anda" required>
                                 </div>
                                 <div class="mt-35">
                                     <label class="mb-10 fw-bold">Password</label>
-                                    <input type="password" name="password" class="form-control border rounded p-20" placeholder="Masukan password Anda">
+                                    <input type="password" name="password" class="form-control border rounded p-20" placeholder="Masukan password Anda" required>
                                 </div>
                                 <div class="col-12 d-flex justify-content-center mt-50">
                                     <div class="row">
