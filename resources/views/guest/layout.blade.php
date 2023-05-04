@@ -112,8 +112,9 @@
                     <li class="nav-item"><a class="nav-link" href="{{ url('berita') }}"><span>Berita</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('galeri') }}"><span>Galeri</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('kontak') }}"><span>Kontak</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url('kelulusan') }}"><span>Kelulusan</span></a></li>
                 </ul>
-                <!-- Button--><a class="btn d-none d-sm-inline-flex btn btn-sm btn-accent-1 ms-auto ms-lg-60 me-30 me-lg-0 order-2 order-lg-3" href="{{ url('masuk') }}" target="_self">Masuk</a>
+                {{-- <!-- Button--><a class="btn  d-sm-inline-flex btn btn-sm btn-accent-1 ms-auto ms-lg-60 me-30 me-lg-0 order-2 order-lg-3" href="{{ url('kelulusan') }}" target="_self">Kelulusan</a> --}}
             </div>
         </nav><!-- Navbar mobile-->
         <div class="navbar navbar-mobile navbar-mobile-style-1 bg-white mfp-hide" id="navbar-mobile-style-1">
