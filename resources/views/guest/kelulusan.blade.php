@@ -21,10 +21,10 @@
                 <div class="row mb-90">
                     <div class="col-lg-6 mx-auto text-center" data-show="startbox">
                         <div class="mb-30 h4 fw-normal">
-                            5 Mei 2023 pukul 07.00 WIB
+                            5 Mei 2023 pukul 10.00 WIB
                         </div>
                         <!-- Countdown-->
-                        <div class="countdown" data-due-date="2023/05/05 07:00:00">
+                        <div class="countdown" data-due-date="2023/05/05 10:00:00">
                             <div class="countdown-item"><span class="digits h1 large-heading  m-0" data-days="">00</span><span class="label display-6 ">Hari</span></div>
                             <div class="countdown-item d-none d-md-block">
                                 <div class="sep h3  mt-15">:</div>
