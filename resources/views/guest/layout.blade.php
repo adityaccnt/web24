@@ -143,7 +143,7 @@
                         <li class="nav-item navbar-collapse"><a class="nav-link" href="{{ url('berita') }}"><span>Berita</span></a></li>
                         <li class="nav-item navbar-collapse"><a class="nav-link" href="{{ url('galeri') }}"><span>Galeri</span></a></li>
                         <li class="nav-item navbar-collapse"><a class="nav-link" href="{{ url('kontak') }}"><span>Kontak</span></a></li>
-                        <li class="nav-item navbar-collapse"><a class="nav-link" href="{{ url('kelulusan') }}"><span>kelulusan</span></a></li>
+                        <li class="nav-item navbar-collapse"><a class="nav-link" href="{{ url('kelulusan') }}"><span>Kelulusan</span></a></li>
                     </ul>
                 </div>
                 <div class="navbar-footer">
