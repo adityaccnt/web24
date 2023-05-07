@@ -86,7 +86,11 @@
                             <div class="swiper-slide">
                                 <div data-filters="company">
                                     <!-- Blog-->
+                                    @if ($lpost->thumbnail)
                                     <div class="card card-blog  card-vertical card-hover-zoom"><a class="card-img rounded-4" href="{{ url('berita/' . $lpost->slug) }}" data-img-height style="--img-height: 90%;"><span class="badge bg-dark text-white position-absolute top-0 start-0 z-index-1 mt-20 ms-20">{{ $lpost->organization->name }}</span><img loading="lazy" src="{{ url($lpost->thumbnail->asset_url) }}" alt="{{ $lpost->title }}"></a>
+                                    @else
+                                    <div class="card card-blog  card-vertical card-hover-zoom"><a class="card-img rounded-4" href="{{ url('berita/' . $lpost->slug) }}" data-img-height style="--img-height: 90%;"><span class="badge bg-dark text-white position-absolute top-0 start-0 z-index-1 mt-20 ms-20">{{ $lpost->organization->name }}</span><img loading="lazy" src="{{ url('public/files/thumbnail_default.jpg') }}" alt="{{ $lpost->title }}"></a>
+                                    @endif
                                         <div class="card-body pt-30">
                                             <div class="card-date text-gray-dark">{{ $lpost->created_at->format('d/m/Y') }}</div><a class="card-title h4" href="{{ url('berita/' . $lpost->slug) }}">{{ $lpost->title }}</a>
                                         </div>
