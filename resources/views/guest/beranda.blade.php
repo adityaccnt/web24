@@ -283,7 +283,7 @@
             </div>
         </div>
     </div>    
-    <div class="bg-linear-gradient pt-120 pb-130">
+    {{-- <div class="bg-linear-gradient pt-120 pb-130">
         <div class="container">
 
             <div class="justify-content-center d-flex align-items-center" data-show="startbox">
@@ -388,7 +388,7 @@
             </div>
             
         </div>
-    </div>
+    </div> --}}
 
     <script type="text/javascript">
         var feed = new Instafeed({
