@@ -255,7 +255,7 @@
         </div>
     </div>
 
-    <div class="pb-100 pt-50 position-relative bg-gray-light">
+    {{-- <div class="pb-100 pt-50 position-relative bg-gray-light">
         <div class="container">
             <div class="row my-40">
                 <div class="col-lg-6 offset-lg-3 text-center px-lg-50">
@@ -282,17 +282,18 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
-    <script type="text/javascript">
+    {{-- <script type="text/javascript">
         var feed = new Instafeed({
           accessToken: '{{ $token }}',
           template:'<div class="swiper-slide pt-15"><div data-filters="branding"><a class="card card-portfolio  image-link overflow-hidden lift rounded-4" href="\{\{link}}"><span class="card-img" data-img-height style="--img-height: 100%;"><img loading="lazy" src="\{\{image}}" alt=""></span></a></div></div>',
           limit: 18
         });
         feed.run();
-    </script>
-    <script>
+    </script> --}}
+
+    {{-- <script>
         window.fbAsyncInit = function() {
         FB.init({
             appId      : '652373923296196',
@@ -309,6 +310,6 @@
             js.src = "https://connect.facebook.net/en_US/sdk.js";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
-    </script>
+    </script> --}}
 
 @endsection
