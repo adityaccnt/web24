@@ -78,12 +78,12 @@
                                     <div class="me-3">Pengaturan</div>
                                 </a>
                             </li>
-                            <li>
+                            {{-- <li>
                                 <a class="dropdown-item" href="{{ url('https://wa.me/15645446449') }}" target="_blank">
                                     <i class="material-icons leading-icon">help</i>
                                     <div class="me-3">Bantuan</div>
                                 </a>
-                            </li>
+                            </li> --}}
                             <li>
                                 <hr class="dropdown-divider" />
                             </li>

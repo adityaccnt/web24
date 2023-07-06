@@ -112,7 +112,7 @@
                     <li class="nav-item"><a class="nav-link" href="{{ url('berita') }}"><span>Berita</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('galeri') }}"><span>Galeri</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('kontak') }}"><span>Kontak</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url('kelulusan') }}"><span>Kelulusan</span></a></li>
+                    {{-- <li class="nav-item"><a class="nav-link" href="{{ url('kelulusan') }}"><span>Kelulusan</span></a></li> --}}
                 </ul>
                 {{-- <!-- Button--><a class="btn  d-sm-inline-flex btn btn-sm btn-accent-1 ms-auto ms-lg-60 me-30 me-lg-0 order-2 order-lg-3" href="{{ url('kelulusan') }}" target="_self">Kelulusan</a> --}}
             </div>
@@ -143,7 +143,7 @@
                         <li class="nav-item navbar-collapse"><a class="nav-link" href="{{ url('berita') }}"><span>Berita</span></a></li>
                         <li class="nav-item navbar-collapse"><a class="nav-link" href="{{ url('galeri') }}"><span>Galeri</span></a></li>
                         <li class="nav-item navbar-collapse"><a class="nav-link" href="{{ url('kontak') }}"><span>Kontak</span></a></li>
-                        <li class="nav-item navbar-collapse"><a class="nav-link" href="{{ url('kelulusan') }}"><span>Kelulusan</span></a></li>
+                        {{-- <li class="nav-item navbar-collapse"><a class="nav-link" href="{{ url('kelulusan') }}"><span>Kelulusan</span></a></li> --}}
                     </ul>
                 </div>
                 <div class="navbar-footer">
